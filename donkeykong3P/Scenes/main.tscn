@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bohi3icddd3d"]
+
+[ext_resource type="Texture2D" uid="uid://de0mqpgcx2lwk" path="res://Assets/screem.jpg" id="1_4h4sh"]
+[ext_resource type="Texture2D" uid="uid://dlsc3nud4wgqi" path="res://Assets/DonkeyKong.png" id="4_jb7vw"]
+
+[node name="main" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1353, -197)
+texture = ExtResource("1_4h4sh")
+
+[node name="Kong" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-310, -347)
+scale = Vector2(4, 4)
+texture = ExtResource("4_jb7vw")
