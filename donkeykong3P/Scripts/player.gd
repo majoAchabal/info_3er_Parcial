@@ -8,7 +8,9 @@ signal game_started
 const SPEED          := 300.0
 const JUMP_VELOCITY  := -400.0
 const HAMMER_PIVOT   := Vector2(0, -3)
-const FALL_LIMIT_Y   := 620.0
+const FALL_LIMIT_Y   := 495.0
+const FALL_DEATH_REENTRY_Y := 440.0
+const FALL_DEATH_JUMP_VELOCITY := -450.0
 
 @export var climb_speed := 250.0
 @export var ui: UI
@@ -29,6 +31,7 @@ var last_barrel_id             = null
 var has_hammer     := false
 var hammer_origin: Vector2
 var dead           := false
+var death_motion   := false
 var has_started_game := false
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -42,6 +45,9 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if dead:
+		if death_motion:
+			velocity.y += gravity * delta
+			move_and_slide()
 		return
 	_check_game_start()
 	_apply_gravity(delta)
@@ -140,7 +146,7 @@ func _check_barrel_jump() -> void:
 
 func _check_fall_limit() -> void:
 	if position.y > FALL_LIMIT_Y:
-		_die()
+		_die(true)
 
 func _update_animation() -> void:
 	if velocity.x != 0.0:
@@ -188,10 +194,18 @@ func _hammer_angle(frame: int) -> float:
 	return 0.0
 
 
-func _die() -> void:
-	dead    = true
-	gravity = 0.0
+func _die(from_fall := false) -> void:
+	if dead:
+		return
+	dead = true
+	death_motion = from_fall
 	set_collision_layer_value(1, false)
+	if from_fall:
+		position.y = min(position.y, FALL_DEATH_REENTRY_Y)
+		velocity = Vector2(0, FALL_DEATH_JUMP_VELOCITY)
+	else:
+		gravity = 0.0
+		velocity = Vector2.ZERO
 	sprite.play("die")
 
 

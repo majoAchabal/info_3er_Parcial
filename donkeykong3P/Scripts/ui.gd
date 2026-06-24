@@ -7,6 +7,10 @@ class_name UI
 @onready var lose_container: Container = $MarginContainer/CenterContainer
 
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
+
 func set_points(points: int) -> void:
 	score_label.text = "Points: %d" % points
 
@@ -17,7 +21,9 @@ func show_lose_ui() -> void:
 
 func show_win_ui() -> void:
 	win_label.show()
+	get_tree().paused = true
 
 
 func _on_restart_button_pressed() -> void:
+	get_tree().paused = false
 	get_tree().reload_current_scene()
