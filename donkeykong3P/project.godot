@@ -22,6 +22,7 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 LevelManager="*uid://bvcmlulhrx2qt"
+SoundManager="*uid://cmns0yd7q05ud"
 
 [display]
 

@@ -76,6 +76,7 @@ func _handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y    = JUMP_VELOCITY
 		last_barrel_id = null
+		SoundManager.play_jump()
 
 
 func _handle_horizontal() -> void:
@@ -170,12 +171,15 @@ func pick_up_hammer() -> void:
 	hammer_node.visible    = true
 	hammer_area.monitoring = true
 	hammer_timer.start()
+	SoundManager.play_item()
+	SoundManager.start_hammer_loop()
 
 
 func _on_hammer_expired() -> void:
 	has_hammer             = false
 	hammer_node.visible    = false
 	hammer_area.monitoring = false
+	SoundManager.stop_hammer_loop()
 
 
 func _on_frame_changed() -> void:
@@ -198,6 +202,8 @@ func _die(from_fall := false) -> void:
 	if dead:
 		return
 	dead = true
+	SoundManager.stop_hammer_loop()
+	SoundManager.play_death()
 	death_motion = from_fall
 	set_collision_layer_value(1, false)
 	if from_fall:
@@ -210,8 +216,9 @@ func _die(from_fall := false) -> void:
 
 
 func _on_hammer_collision_body_entered(body: Node) -> void:
-	award_points.emit(body.global_position)
-	body.queue_free()
+	if body is Barrel:
+		award_points.emit(body.global_position)
+		body.queue_free()
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
