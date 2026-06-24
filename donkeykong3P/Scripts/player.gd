@@ -5,7 +5,13 @@ class_name Player
 const SPEED := 300.0
 const JUMP_VELOCITY := -400.0
 
+@export var climb_speed := 250.0
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+var ladder_x := 0.0
+var can_climb := false
+var on_ladder := false
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -16,10 +22,11 @@ func _physics_process(delta: float) -> void:
 	_handle_horizontal()
 	_update_animation()
 	move_and_slide()
+	_handle_climbing(delta)
 
 
 func _apply_gravity(delta: float) -> void:
-	if not is_on_floor():
+	if not is_on_floor() and not on_ladder:
 		velocity.y += gravity * delta
 
 
@@ -30,15 +37,40 @@ func _handle_jump() -> void:
 
 func _handle_horizontal() -> void:
 	var dir := Input.get_axis("left", "right")
-	if dir != 0.0:
+	if dir != 0.0 and not on_ladder:
 		velocity.x = dir * SPEED
 		sprite.flip_h = dir < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, SPEED)
 
 
+func _handle_climbing(delta: float) -> void:
+	if not can_climb:
+		return
+
+	var dir := Input.get_axis("down", "up")
+	if dir != 0.0:
+		on_ladder = true
+		position.x = ladder_x
+		sprite.play("climb")
+		position.y -= dir * climb_speed * delta
+
+	if on_ladder and is_on_floor():
+		on_ladder = false
+
+
 func _update_animation() -> void:
 	if velocity.x != 0.0:
 		sprite.play("run")
-	else:
+	elif not on_ladder:
 		sprite.play("idle")
+
+
+func enable_climbing(x: float) -> void:
+	ladder_x = x
+	can_climb = true
+
+
+func disable_climbing() -> void:
+	can_climb = false
+	on_ladder = false
