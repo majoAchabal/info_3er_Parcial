@@ -24,6 +24,10 @@ config/icon="res://Assets/icon.svg"
 window/size/viewport_width=1000
 window/size/viewport_height=1000
 
+[layer_names]
+
+2d_physics/layer_4="platform"
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
