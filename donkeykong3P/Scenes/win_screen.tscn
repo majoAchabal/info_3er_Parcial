@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d2taddhvyschk"]
+
+[ext_resource type="Script" uid="uid://bxwgfmkhkk8vd" path="res://Scenes/win_screen.gd" id="1_l5sol"]
+
+[node name="Control" type="Control" unique_id=868059047]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l5sol")
+
+[node name="Label" type="Label" parent="." unique_id=128487537]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 142.0
+offset_right = 532.0
+offset_bottom = 165.0
+text = "YOU WIN!"
+
+[node name="Button" type="Button" parent="." unique_id=1169197672]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 325.0
+offset_right = 566.0
+offset_bottom = 356.0
+text = "BACK TO MENU"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

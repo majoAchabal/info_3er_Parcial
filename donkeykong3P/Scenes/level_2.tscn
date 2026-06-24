@@ -1,0 +1,317 @@
+[gd_scene format=3 uid="uid://c1kufwva48v4b"]
+
+[ext_resource type="Texture2D" uid="uid://de0mqpgcx2lwk" path="res://Assets/screem.jpg" id="1_42uki"]
+[ext_resource type="PackedScene" uid="uid://c7m3ku44r8e66" path="res://Scenes/ladder.tscn" id="2_t7v2y"]
+[ext_resource type="PackedScene" uid="uid://brv27lb6lvel2" path="res://Scenes/platform.tscn" id="3_ait6c"]
+[ext_resource type="Texture2D" uid="uid://dlsc3nud4wgqi" path="res://Assets/DonkeyKong.png" id="4_vcilj"]
+[ext_resource type="PackedScene" uid="uid://dqka02bkf2afk" path="res://Scenes/player.tscn" id="5_bl0du"]
+[ext_resource type="PackedScene" uid="uid://dylx27rfk52yo" path="res://Scenes/barrel_spawner.tscn" id="6_q0ycs"]
+[ext_resource type="PackedScene" uid="uid://b6m62coecgu6" path="res://Scenes/hammer.tscn" id="7_hj5x7"]
+[ext_resource type="Script" uid="uid://cbpm0qmbh1j00" path="res://Scripts/points_manager.gd" id="8_yvrk7"]
+[ext_resource type="PackedScene" uid="uid://dlgy0os4wmmt2" path="res://Scenes/ui.tscn" id="9_fhuy1"]
+[ext_resource type="PackedScene" uid="uid://ch72anv15xyl4" path="res://Scenes/princess.tscn" id="10_i6dbo"]
+
+[node name="main" type="Node" unique_id=879735258]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1428235854]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=484577258]
+position = Vector2(1353, -197)
+texture = ExtResource("1_42uki")
+
+[node name="Ladders" type="Node" parent="." unique_id=1635336590]
+
+[node name="Ladders1" type="Node" parent="Ladders" unique_id=1663569167]
+
+[node name="Ladder" parent="Ladders/Ladders1" unique_id=1004892100 instance=ExtResource("2_t7v2y")]
+position = Vector2(-73, 380)
+
+[node name="Ladder3" parent="Ladders/Ladders1" unique_id=83875574 instance=ExtResource("2_t7v2y")]
+position = Vector2(-74, 312)
+length = 1.0
+
+[node name="Ladder2" parent="Ladders/Ladders1" unique_id=568809652 instance=ExtResource("2_t7v2y")]
+position = Vector2(322, 352)
+length = 2.5
+
+[node name="Ladders2" type="Node" parent="Ladders" unique_id=779318871]
+
+[node name="Ladder" parent="Ladders/Ladders2" unique_id=564851661 instance=ExtResource("2_t7v2y")]
+position = Vector2(105, 226)
+length = 3.25
+
+[node name="Ladder2" parent="Ladders/Ladders2" unique_id=1779665924 instance=ExtResource("2_t7v2y")]
+position = Vector2(-289, 221)
+
+[node name="Ladders3" type="Node" parent="Ladders" unique_id=1527178181]
+
+[node name="Ladder" parent="Ladders/Ladders3" unique_id=792708539 instance=ExtResource("2_t7v2y")]
+position = Vector2(-185, 141)
+length = 1.0
+
+[node name="Ladder2" parent="Ladders/Ladders3" unique_id=1194669330 instance=ExtResource("2_t7v2y")]
+position = Vector2(-188, 44)
+length = 1.5
+
+[node name="Ladder3" parent="Ladders/Ladders3" unique_id=60437298 instance=ExtResource("2_t7v2y")]
+position = Vector2(16, 91)
+length = 3.5
+
+[node name="Ladder4" parent="Ladders/Ladders3" unique_id=683301400 instance=ExtResource("2_t7v2y")]
+position = Vector2(350, 95)
+length = 2.5
+
+[node name="Ladders4" type="Node" parent="Ladders" unique_id=1578448914]
+
+[node name="Ladder" parent="Ladders/Ladders4" unique_id=1376444085 instance=ExtResource("2_t7v2y")]
+position = Vector2(222, 4)
+length = 1.0
+
+[node name="Ladder2" parent="Ladders/Ladders4" unique_id=2044171071 instance=ExtResource("2_t7v2y")]
+position = Vector2(221, -89)
+length = 1.5
+
+[node name="Ladder3" parent="Ladders/Ladders4" unique_id=886644640 instance=ExtResource("2_t7v2y")]
+position = Vector2(-77, -50)
+length = 3.0
+
+[node name="Ladder4" parent="Ladders/Ladders4" unique_id=1093924722 instance=ExtResource("2_t7v2y")]
+position = Vector2(-273, -51)
+length = 2.5
+
+[node name="Ladders5" type="Node" parent="Ladders" unique_id=896132351]
+
+[node name="Ladder" parent="Ladders/Ladders5" unique_id=993994655 instance=ExtResource("2_t7v2y")]
+position = Vector2(16, -148)
+length = 1.0
+
+[node name="Ladder2" parent="Ladders/Ladders5" unique_id=915621578 instance=ExtResource("2_t7v2y")]
+position = Vector2(15, -238)
+length = 1.0
+
+[node name="Ladder3" parent="Ladders/Ladders5" unique_id=666958937 instance=ExtResource("2_t7v2y")]
+position = Vector2(317, -194)
+length = 3.5
+
+[node name="Ladders6" type="Node" parent="Ladders" unique_id=539424777]
+
+[node name="Ladder" parent="Ladders/Ladders6" unique_id=2078148756 instance=ExtResource("2_t7v2y")]
+position = Vector2(97, -314)
+
+[node name="Ladder2" parent="Ladders/Ladders6" unique_id=812872970 instance=ExtResource("2_t7v2y")]
+position = Vector2(-121, -300)
+length = 1.5
+
+[node name="Ladder3" parent="Ladders/Ladders6" unique_id=623918905 instance=ExtResource("2_t7v2y")]
+position = Vector2(-179, -300)
+length = 1.5
+
+[node name="Platforms" type="Node" parent="." unique_id=1378061504]
+
+[node name="Platforms1" type="Node" parent="Platforms" unique_id=1658813327]
+
+[node name="Platform" parent="Platforms/Platforms1" unique_id=1375388199 instance=ExtResource("3_ait6c")]
+position = Vector2(-352, 432)
+
+[node name="Platform2" parent="Platforms/Platforms1" unique_id=478439361 instance=ExtResource("3_ait6c")]
+position = Vector2(-256, 432)
+
+[node name="Platform3" parent="Platforms/Platforms1" unique_id=590281692 instance=ExtResource("3_ait6c")]
+position = Vector2(-160, 432)
+
+[node name="Platform4" parent="Platforms/Platforms1" unique_id=1704851112 instance=ExtResource("3_ait6c")]
+position = Vector2(-64, 432)
+
+[node name="Platform5" parent="Platforms/Platforms1" unique_id=198692070 instance=ExtResource("3_ait6c")]
+position = Vector2(32, 428)
+
+[node name="Platform6" parent="Platforms/Platforms1" unique_id=1252937268 instance=ExtResource("3_ait6c")]
+position = Vector2(128, 423)
+
+[node name="Platform7" parent="Platforms/Platforms1" unique_id=461160144 instance=ExtResource("3_ait6c")]
+position = Vector2(224, 418)
+
+[node name="Platform8" parent="Platforms/Platforms1" unique_id=81272011 instance=ExtResource("3_ait6c")]
+position = Vector2(320, 413)
+
+[node name="Platforms2" type="Node" parent="Platforms" unique_id=263429794]
+
+[node name="Platform" parent="Platforms/Platforms2" unique_id=1230914692 instance=ExtResource("3_ait6c")]
+position = Vector2(309, 303)
+can_be_disabled = true
+
+[node name="Platform2" parent="Platforms/Platforms2" unique_id=1429421998 instance=ExtResource("3_ait6c")]
+position = Vector2(213, 299)
+
+[node name="Platform3" parent="Platforms/Platforms2" unique_id=691752523 instance=ExtResource("3_ait6c")]
+position = Vector2(117, 295)
+
+[node name="Platform4" parent="Platforms/Platforms2" unique_id=1784441420 instance=ExtResource("3_ait6c")]
+position = Vector2(21, 287)
+
+[node name="Platform5" parent="Platforms/Platforms2" unique_id=480071613 instance=ExtResource("3_ait6c")]
+position = Vector2(-75, 283)
+can_be_disabled = true
+
+[node name="Platform6" parent="Platforms/Platforms2" unique_id=1546327705 instance=ExtResource("3_ait6c")]
+position = Vector2(-171, 278)
+
+[node name="Platform7" parent="Platforms/Platforms2" unique_id=1210004738 instance=ExtResource("3_ait6c")]
+position = Vector2(-268, 273)
+
+[node name="Platform8" parent="Platforms/Platforms2" unique_id=163460499 instance=ExtResource("3_ait6c")]
+position = Vector2(-365, 268)
+
+[node name="Platforms3" type="Node" parent="Platforms" unique_id=352511500]
+
+[node name="Platform" parent="Platforms/Platforms3" unique_id=116992314 instance=ExtResource("3_ait6c")]
+position = Vector2(-291, 181)
+can_be_disabled = true
+
+[node name="Platform2" parent="Platforms/Platforms3" unique_id=2077872888 instance=ExtResource("3_ait6c")]
+position = Vector2(-194, 176)
+
+[node name="Platform3" parent="Platforms/Platforms3" unique_id=237162661 instance=ExtResource("3_ait6c")]
+position = Vector2(-98, 171)
+
+[node name="Platform4" parent="Platforms/Platforms3" unique_id=962678690 instance=ExtResource("3_ait6c")]
+position = Vector2(-2, 166)
+
+[node name="Platform5" parent="Platforms/Platforms3" unique_id=1148930674 instance=ExtResource("3_ait6c")]
+position = Vector2(93, 160)
+can_be_disabled = true
+
+[node name="Platform6" parent="Platforms/Platforms3" unique_id=2132595721 instance=ExtResource("3_ait6c")]
+position = Vector2(190, 154)
+
+[node name="Platform7" parent="Platforms/Platforms3" unique_id=51637461 instance=ExtResource("3_ait6c")]
+position = Vector2(285, 147)
+
+[node name="Platform8" parent="Platforms/Platforms3" unique_id=2071298345 instance=ExtResource("3_ait6c")]
+position = Vector2(381, 142)
+
+[node name="Platforms4" type="Node" parent="Platforms" unique_id=730700879]
+
+[node name="Platform" parent="Platforms/Platforms4" unique_id=1306132842 instance=ExtResource("3_ait6c")]
+position = Vector2(318, 40)
+can_be_disabled = true
+
+[node name="Platform2" parent="Platforms/Platforms4" unique_id=837548452 instance=ExtResource("3_ait6c")]
+position = Vector2(222, 35)
+
+[node name="Platform3" parent="Platforms/Platforms4" unique_id=443614929 instance=ExtResource("3_ait6c")]
+position = Vector2(125, 31)
+
+[node name="Platform4" parent="Platforms/Platforms4" unique_id=942719886 instance=ExtResource("3_ait6c")]
+position = Vector2(29, 24)
+can_be_disabled = true
+
+[node name="Platform5" parent="Platforms/Platforms4" unique_id=908497674 instance=ExtResource("3_ait6c")]
+position = Vector2(-68, 18)
+
+[node name="Platform6" parent="Platforms/Platforms4" unique_id=1247819870 instance=ExtResource("3_ait6c")]
+position = Vector2(-165, 11)
+
+[node name="Platform7" parent="Platforms/Platforms4" unique_id=1404080645 instance=ExtResource("3_ait6c")]
+position = Vector2(-261, 5)
+
+[node name="Platform8" parent="Platforms/Platforms4" unique_id=1313364402 instance=ExtResource("3_ait6c")]
+position = Vector2(-357, -1)
+
+[node name="Platforms5" type="Node" parent="Platforms" unique_id=1491501622]
+
+[node name="Platform" parent="Platforms/Platforms5" unique_id=1780611741 instance=ExtResource("3_ait6c")]
+position = Vector2(-269, -105)
+can_be_disabled = true
+
+[node name="Platform2" parent="Platforms/Platforms5" unique_id=1769750542 instance=ExtResource("3_ait6c")]
+position = Vector2(-173, -109)
+
+[node name="Platform3" parent="Platforms/Platforms5" unique_id=427858767 instance=ExtResource("3_ait6c")]
+position = Vector2(-77, -111)
+can_be_disabled = true
+
+[node name="Platform4" parent="Platforms/Platforms5" unique_id=976250860 instance=ExtResource("3_ait6c")]
+position = Vector2(19, -115)
+
+[node name="Platform5" parent="Platforms/Platforms5" unique_id=921378922 instance=ExtResource("3_ait6c")]
+position = Vector2(115, -120)
+
+[node name="Platform6" parent="Platforms/Platforms5" unique_id=509347957 instance=ExtResource("3_ait6c")]
+position = Vector2(211, -125)
+
+[node name="Platform7" parent="Platforms/Platforms5" unique_id=926010353 instance=ExtResource("3_ait6c")]
+position = Vector2(307, -128)
+
+[node name="Platform8" parent="Platforms/Platforms5" unique_id=1838005152 instance=ExtResource("3_ait6c")]
+position = Vector2(402, -135)
+
+[node name="Platforms6" type="Node" parent="Platforms" unique_id=933553628]
+
+[node name="Platform" parent="Platforms/Platforms6" unique_id=704897516 instance=ExtResource("3_ait6c")]
+position = Vector2(331, -260)
+can_be_disabled = true
+
+[node name="Platform2" parent="Platforms/Platforms6" unique_id=844324406 instance=ExtResource("3_ait6c")]
+position = Vector2(235, -264)
+
+[node name="Platform3" parent="Platforms/Platforms6" unique_id=718998772 instance=ExtResource("3_ait6c")]
+position = Vector2(139, -267)
+can_be_disabled = true
+
+[node name="Platform4" parent="Platforms/Platforms6" unique_id=1687557373 instance=ExtResource("3_ait6c")]
+position = Vector2(43, -267)
+can_be_disabled = true
+
+[node name="Platform5" parent="Platforms/Platforms6" unique_id=1062931227 instance=ExtResource("3_ait6c")]
+position = Vector2(-52, -267)
+
+[node name="Platform6" parent="Platforms/Platforms6" unique_id=1637735192 instance=ExtResource("3_ait6c")]
+position = Vector2(-148, -267)
+
+[node name="Platform7" parent="Platforms/Platforms6" unique_id=1086639255 instance=ExtResource("3_ait6c")]
+position = Vector2(-244, -267)
+
+[node name="Platform8" parent="Platforms/Platforms6" unique_id=896988062 instance=ExtResource("3_ait6c")]
+position = Vector2(-340, -267)
+
+[node name="Platforms7" type="Node" parent="Platforms" unique_id=1048556345]
+
+[node name="Platform" parent="Platforms/Platforms7" unique_id=1845777601 instance=ExtResource("3_ait6c")]
+position = Vector2(77, -354)
+can_be_disabled = true
+
+[node name="Platform2" parent="Platforms/Platforms7" unique_id=142579639 instance=ExtResource("3_ait6c")]
+position = Vector2(-18, -354)
+
+[node name="Platform3" parent="Platforms/Platforms7" unique_id=1989531744 instance=ExtResource("3_ait6c")]
+position = Vector2(-150, -335)
+can_be_disabled = true
+
+[node name="Kong" type="Sprite2D" parent="." unique_id=1926485319]
+texture_filter = 1
+position = Vector2(-310, -347)
+scale = Vector2(4, 4)
+texture = ExtResource("4_vcilj")
+
+[node name="Player" parent="." unique_id=1958255648 node_paths=PackedStringArray("ui") instance=ExtResource("5_bl0du")]
+position = Vector2(-352, 384)
+scale = Vector2(4, 4)
+ui = NodePath("../UI")
+
+[node name="BarrelSpawner" parent="." unique_id=251466773 instance=ExtResource("6_q0ycs")]
+position = Vector2(-311, -297)
+barrel_speed = 260.0
+
+[node name="Hammer" parent="." unique_id=1570480273 instance=ExtResource("7_hj5x7")]
+position = Vector2(-396, 201)
+scale = Vector2(4, 4)
+
+[node name="PointsManager" type="Node" parent="." unique_id=993143424]
+script = ExtResource("8_yvrk7")
+
+[node name="UI" parent="." unique_id=94569546 instance=ExtResource("9_fhuy1")]
+
+[node name="Princess" parent="." unique_id=238003324 instance=ExtResource("10_i6dbo")]
+position = Vector2(-158, -396)
+scale = Vector2(4, 4)

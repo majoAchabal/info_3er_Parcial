@@ -15,9 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Donkey Kong 3er Parcial"
-run/main_scene="res://Scenes/main.tscn"
+run/main_scene="uid://bew5ik4g3yge7"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://Assets/icon.svg"
+
+[autoload]
+
+LevelManager="*uid://bvcmlulhrx2qt"
 
 [display]
 

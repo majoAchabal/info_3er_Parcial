@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bew5ik4g3yge7"]
+
+[ext_resource type="Script" uid="uid://ctkpafvnkk4fe" path="res://Scripts/main_menu.gd" id="1_28flt"]
+
+[node name="Control" type="Control" unique_id=259392703]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="TitleLabel" type="Label" parent="." unique_id=788162036]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 144.0
+offset_right = 565.0
+offset_bottom = 169.0
+text = "DONKEY KONG"
+
+[node name="StartButton" type="Button" parent="." unique_id=1736166522]
+layout_mode = 0
+offset_left = 440.0
+offset_top = 226.0
+offset_right = 546.0
+offset_bottom = 257.0
+text = "START GAME"
+
+[node name="QuitButton" type="Button" parent="." unique_id=28950185]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 266.0
+offset_right = 512.0
+offset_bottom = 297.0
+text = "QUIT"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
