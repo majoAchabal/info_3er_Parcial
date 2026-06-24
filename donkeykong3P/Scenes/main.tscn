@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bohi3icddd3d"]
+[gd_scene load_steps=8 format=3 uid="uid://bohi3icddd3d"]
 
 [ext_resource type="Texture2D" uid="uid://de0mqpgcx2lwk" path="res://Assets/screem.jpg" id="1_4h4sh"]
 [ext_resource type="PackedScene" uid="uid://brv27lb6lvel2" path="res://Scenes/platform.tscn" id="2_fsuoi"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dlsc3nud4wgqi" path="res://Assets/DonkeyKong.png" id="4_jb7vw"]
 [ext_resource type="PackedScene" uid="uid://dqka02bkf2afk" path="res://Scenes/player.tscn" id="6_ocowa"]
 [ext_resource type="PackedScene" uid="uid://dylx27rfk52yo" path="res://Scenes/barrel_spawner.tscn" id="7_gi5r5"]
+[ext_resource type="PackedScene" uid="uid://dlgy0os4wmmt2" path="res://Scenes/ui.tscn" id="10_r50x2"]
 
 [node name="main" type="Node"]
 
@@ -288,9 +289,12 @@ texture_filter = 1
 position = Vector2(-310, -347)
 scale = Vector2(4, 4)
 texture = ExtResource("4_jb7vw")
-[node name="Player" parent="." instance=ExtResource("6_ocowa")]
+[node name="Player" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("6_ocowa")]
 position = Vector2(-100, -162)
 scale = Vector2(4, 4)
+ui = NodePath("../UI")
 
 [node name="BarrelSpawner" parent="." instance=ExtResource("7_gi5r5")]
 position = Vector2(-311, -297)
+
+[node name="UI" parent="." instance=ExtResource("10_r50x2")]

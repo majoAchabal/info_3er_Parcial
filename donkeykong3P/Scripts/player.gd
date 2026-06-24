@@ -6,6 +6,7 @@ const SPEED := 300.0
 const JUMP_VELOCITY := -400.0
 
 @export var climb_speed := 250.0
+@export var ui: UI
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -95,3 +96,8 @@ func _die() -> void:
 	gravity = 0.0
 	set_collision_layer_value(1, false)
 	sprite.play("die")
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if sprite.animation == "die":
+		ui.show_lose_ui()
