@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+signal award_points(position: Vector2)
+
 const SPEED := 300.0
 const JUMP_VELOCITY := -400.0
 
@@ -9,10 +11,12 @@ const JUMP_VELOCITY := -400.0
 @export var ui: UI
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var raycast: RayCast2D = $RayCast2D
 
 var ladder_x := 0.0
 var can_climb := false
 var on_ladder := false
+var last_barrel_id = null
 var dead := false
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -28,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	_handle_collisions()
 	_handle_climbing(delta)
+	_check_barrel_jump()
 
 
 func _apply_gravity(delta: float) -> void:
@@ -38,6 +43,7 @@ func _apply_gravity(delta: float) -> void:
 func _handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		last_barrel_id = null
 
 
 func _handle_horizontal() -> void:
@@ -72,6 +78,15 @@ func _handle_climbing(delta: float) -> void:
 
 	if on_ladder and is_on_floor():
 		on_ladder = false
+
+
+func _check_barrel_jump() -> void:
+	if is_on_floor():
+		return
+	var body := raycast.get_collider()
+	if body is Barrel and last_barrel_id == null:
+		last_barrel_id = body.get_rid()
+		award_points.emit(body.global_position)
 
 
 func _update_animation() -> void:
