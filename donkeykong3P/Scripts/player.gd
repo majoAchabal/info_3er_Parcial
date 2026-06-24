@@ -12,16 +12,20 @@ const JUMP_VELOCITY := -400.0
 var ladder_x := 0.0
 var can_climb := false
 var on_ladder := false
+var dead := false
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta: float) -> void:
+	if dead:
+		return
 	_apply_gravity(delta)
 	_handle_jump()
 	_handle_horizontal()
 	_update_animation()
 	move_and_slide()
+	_handle_collisions()
 	_handle_climbing(delta)
 
 
@@ -42,6 +46,16 @@ func _handle_horizontal() -> void:
 		sprite.flip_h = dir < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, SPEED)
+
+
+func _handle_collisions() -> void:
+	var col := get_last_slide_collision() as KinematicCollision2D
+	if not col:
+		return
+
+	var body := col.get_collider()
+	if body is Barrel and not dead:
+		_die()
 
 
 func _handle_climbing(delta: float) -> void:
@@ -74,3 +88,10 @@ func enable_climbing(x: float) -> void:
 func disable_climbing() -> void:
 	can_climb = false
 	on_ladder = false
+
+
+func _die() -> void:
+	dead = true
+	gravity = 0.0
+	set_collision_layer_value(1, false)
+	sprite.play("die")

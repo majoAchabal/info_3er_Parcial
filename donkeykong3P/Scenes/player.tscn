@@ -1,10 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqka02bkf2afk"]
+[gd_scene load_steps=13 format=3 uid="uid://dqka02bkf2afk"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_j32ya"]
 [ext_resource type="Texture2D" uid="uid://bg1exf8smy5e8" path="res://Assets/Mario_Run1.png" id="1_rc3hi"]
 [ext_resource type="Texture2D" uid="uid://c3oiii2x8nfdj" path="res://Assets/Mario_Climb.png" id="2_178eb"]
 [ext_resource type="Texture2D" uid="uid://bs2djhms5mm07" path="res://Assets/Mario_Run2.png" id="3_7x714"]
+[ext_resource type="Texture2D" uid="uid://bnynv6mimbinh" path="res://Assets/mario-death1.png" id="3_jnu43"]
+[ext_resource type="Texture2D" uid="uid://bqpod3cwaqt4u" path="res://Assets/mario-death2.png" id="4_btyfn"]
 [ext_resource type="Texture2D" uid="uid://diyqrglgwv1ex" path="res://Assets/Mario_Run3.png" id="4_sgyk2"]
+[ext_resource type="Texture2D" uid="uid://dr7mkwr06v3vi" path="res://Assets/mario-death3.png" id="5_2i3ki"]
+[ext_resource type="Texture2D" uid="uid://dw2reg1u0sj10" path="res://Assets/mario-death4.png" id="6_fmu0l"]
+[ext_resource type="Texture2D" uid="uid://cmvq35fycaste" path="res://Assets/mario-death5.png" id="7_t8s2i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d4att"]
 animations = [{
@@ -14,6 +19,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"climb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_jnu43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_btyfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2i3ki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fmu0l")
+}, {
+"duration": 6.0,
+"texture": ExtResource("7_t8s2i")
+}],
+"loop": false,
+"name": &"die",
 "speed": 5.0
 }, {
 "frames": [{
