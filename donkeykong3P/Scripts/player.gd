@@ -3,10 +3,12 @@ extends CharacterBody2D
 class_name Player
 
 signal award_points(position: Vector2)
+signal game_started
 
 const SPEED          := 300.0
 const JUMP_VELOCITY  := -400.0
 const HAMMER_PIVOT   := Vector2(0, -3)
+const FALL_LIMIT_Y   := 620.0
 
 @export var climb_speed := 250.0
 @export var ui: UI
@@ -27,6 +29,7 @@ var last_barrel_id             = null
 var has_hammer     := false
 var hammer_origin: Vector2
 var dead           := false
+var has_started_game := false
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -40,6 +43,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if dead:
 		return
+	_check_game_start()
 	_apply_gravity(delta)
 	_handle_jump()
 	_handle_horizontal()
@@ -48,7 +52,14 @@ func _physics_process(delta: float) -> void:
 	_handle_collisions()
 	_handle_climbing(delta)
 	_check_barrel_jump()
+	_check_fall_limit()
 
+func _check_game_start() -> void:
+	if has_started_game:
+		return
+	if Input.is_action_pressed("left") or Input.is_action_pressed("right") or Input.is_action_pressed("up") or Input.is_action_pressed("down") or Input.is_action_just_pressed("jump"):
+		has_started_game = true
+		game_started.emit()
 
 func _apply_gravity(delta: float) -> void:
 	if not is_on_floor() and not on_ladder:
@@ -127,6 +138,9 @@ func _check_barrel_jump() -> void:
 		last_barrel_id = body.get_rid()
 		award_points.emit(body.global_position)
 
+func _check_fall_limit() -> void:
+	if position.y > FALL_LIMIT_Y:
+		_die()
 
 func _update_animation() -> void:
 	if velocity.x != 0.0:

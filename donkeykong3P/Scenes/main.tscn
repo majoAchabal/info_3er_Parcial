@@ -300,7 +300,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("4_jb7vw")
 
 [node name="Player" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("6_ocowa")]
-position = Vector2(-100, -162)
+position = Vector2(-352, 384)
 scale = Vector2(4, 4)
 ui = NodePath("../UI")
 
