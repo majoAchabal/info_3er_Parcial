@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://bew5ik4g3yge7"]
 
 [ext_resource type="Script" uid="uid://ctkpafvnkk4fe" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="FontFile" uid="uid://4ay5p4q02m81" path="res://Assets/Retro Gaming.ttf" id="2_font"]
+[ext_resource type="Texture2D" path="res://Assets/Title.png" id="3_title"]
+[ext_resource type="Texture2D" uid="uid://dlsc3nud4wgqi" path="res://Assets/DonkeyKong.png" id="4_kong"]
 
 [node name="Control" type="Control" unique_id=259392703]
 layout_mode = 3
@@ -11,29 +14,65 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_28flt")
 
-[node name="TitleLabel" type="Label" parent="." unique_id=788162036]
-layout_mode = 0
-offset_left = 432.0
-offset_top = 144.0
-offset_right = 565.0
-offset_bottom = 169.0
-text = "DONKEY KONG"
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="StartButton" type="Button" parent="." unique_id=1736166522]
-layout_mode = 0
-offset_left = 440.0
-offset_top = 226.0
-offset_right = 546.0
-offset_bottom = 257.0
-text = "START GAME"
+[node name="MenuStack" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(760, 650)
+layout_mode = 2
+theme_override_constants/separation = 44
+alignment = 1
 
-[node name="QuitButton" type="Button" parent="." unique_id=28950185]
-layout_mode = 0
-offset_left = 465.0
-offset_top = 266.0
-offset_right = 512.0
-offset_bottom = 297.0
+[node name="Title" type="TextureRect" parent="CenterContainer/MenuStack"]
+custom_minimum_size = Vector2(716, 344)
+layout_mode = 2
+texture_filter = 1
+texture = ExtResource("3_title")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Kong" type="TextureRect" parent="CenterContainer/MenuStack"]
+custom_minimum_size = Vector2(220, 164)
+layout_mode = 2
+texture_filter = 1
+texture = ExtResource("4_kong")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Options" type="HBoxContainer" parent="CenterContainer/MenuStack"]
+custom_minimum_size = Vector2(520, 72)
+layout_mode = 2
+theme_override_constants/separation = 220
+alignment = 1
+
+[node name="StartButton" type="Button" parent="CenterContainer/MenuStack/Options"]
+custom_minimum_size = Vector2(230, 88)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0.847059, 0.145098, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 50
+text = "START"
+flat = true
+
+[node name="QuitButton" type="Button" parent="CenterContainer/MenuStack/Options"]
+custom_minimum_size = Vector2(230, 88)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0.847059, 0.145098, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 50
 text = "QUIT"
+flat = true
 
-[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuStack/Options/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuStack/Options/QuitButton" to="." method="_on_quit_button_pressed"]

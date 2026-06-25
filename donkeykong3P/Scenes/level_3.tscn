@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ch72anv15xyl4" path="res://Scenes/princess.tscn" id="10_kgmqw"]
 [ext_resource type="PackedScene" uid="uid://v0mmvu8hpeb5" path="res://Scenes/level_transition.tscn" id="11_jtv8s"]
 [ext_resource type="PackedScene" uid="uid://by7wv38ewxr83" path="res://Scenes/enemy.tscn" id="12_c81s1"]
+[ext_resource type="Texture2D" uid="uid://ue6hgy166831" path="res://Assets/barrels.png" id="13_barrels"]
 
 [node name="main" type="Node" unique_id=110918724]
 
@@ -221,6 +222,18 @@ position = Vector2(-340, -267)
 [node name="Platform3" parent="Platforms/Platforms7" unique_id=2111420313 instance=ExtResource("3_c81s1")]
 position = Vector2(-150, -335)
 can_be_disabled = true
+
+[node name="KongLeftPlatform" parent="Platforms/Platforms7" unique_id=521571831 instance=ExtResource("3_c81s1")]
+position = Vector2(-438, -268)
+
+[node name="KongLeftPlatform2" parent="Platforms/Platforms7" unique_id=1883236680 instance=ExtResource("3_c81s1")]
+position = Vector2(-342, -268)
+
+[node name="BarrelsStack" type="Sprite2D" parent="." unique_id=2079616532]
+texture_filter = 1
+position = Vector2(-438, -346)
+scale = Vector2(4, 4)
+texture = ExtResource("13_barrels")
 
 [node name="Kong" type="Sprite2D" parent="." unique_id=539173138]
 texture_filter = 1

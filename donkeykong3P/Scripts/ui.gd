@@ -2,9 +2,14 @@ extends CanvasLayer
 
 class_name UI
 
-@onready var score_label: Label = $MarginContainer/HBoxContainer/Score
-@onready var lives_label: Label = $MarginContainer/HBoxContainer/Lives
-@onready var win_label: Label = $MarginContainer/HBoxContainer/WinLabel
+@onready var score_label: Label = $MarginContainer/HudRoot/ScoreBlock/Score
+@onready var level_label: Label = $MarginContainer/HudRoot/Level
+@onready var life_icons: Array[TextureRect] = [
+	$MarginContainer/HudRoot/LivesContainer/Life1,
+	$MarginContainer/HudRoot/LivesContainer/Life2,
+	$MarginContainer/HudRoot/LivesContainer/Life3,
+]
+@onready var win_label: Label = $MarginContainer/HudRoot/WinLabel
 @onready var lose_container: Container = $MarginContainer/CenterContainer
 
 
@@ -14,8 +19,11 @@ func _ready() -> void:
 
 
 func update_hud() -> void:
-	score_label.text = "Points: %d" % GameState.score
-	lives_label.text = "Lives: %d" % GameState.lives
+	score_label.text = "%06d" % GameState.score
+	level_label.text = "L=%02d" % LevelManager.current_level
+
+	for i in range(life_icons.size()):
+		life_icons[i].visible = i >= life_icons.size() - GameState.lives
 
 
 func set_points(points: int) -> void:

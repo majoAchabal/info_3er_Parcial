@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cypry1btpy4cm" path="res://Scenes/pause_menu.tscn" id="11_af3po"]
 [ext_resource type="PackedScene" uid="uid://v0mmvu8hpeb5" path="res://Scenes/level_transition.tscn" id="12_uy8f0"]
 [ext_resource type="PackedScene" uid="uid://by7wv38ewxr83" path="res://Scenes/enemy.tscn" id="13_6r07y"]
+[ext_resource type="Texture2D" uid="uid://ue6hgy166831" path="res://Assets/barrels.png" id="13_barrels"]
 
 [node name="main" type="Node" unique_id=1270589648]
 
@@ -299,6 +300,18 @@ position = Vector2(-18, -354)
 position = Vector2(-150, -335)
 can_be_disabled = true
 
+[node name="KongLeftPlatform" parent="Platforms/Platforms7" unique_id=957660455 instance=ExtResource("2_fsuoi")]
+position = Vector2(-438, -268)
+
+[node name="KongLeftPlatform2" parent="Platforms/Platforms7" unique_id=1775174739 instance=ExtResource("2_fsuoi")]
+position = Vector2(-342, -268)
+
+[node name="BarrelsStack" type="Sprite2D" parent="." unique_id=421786974]
+texture_filter = 1
+position = Vector2(-438, -346)
+scale = Vector2(4, 4)
+texture = ExtResource("13_barrels")
+
 [node name="Kong" type="Sprite2D" parent="." unique_id=1687915835]
 texture_filter = 1
 position = Vector2(-310, -347)
@@ -332,7 +345,6 @@ scale = Vector2(4, 4)
 
 [node name="Enemy" parent="." unique_id=1937521690 instance=ExtResource("13_6r07y")]
 position = Vector2(-184, 237)
-scale = Vector2(3, 3)
 
 [node name="Enemy2" parent="." unique_id=431190142 instance=ExtResource("13_6r07y")]
 position = Vector2(131, 385)

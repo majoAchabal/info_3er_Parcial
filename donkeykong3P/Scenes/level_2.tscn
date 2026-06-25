@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7m3ku44r8e66" path="res://Scenes/ladder.tscn" id="2_t7v2y"]
 [ext_resource type="PackedScene" uid="uid://brv27lb6lvel2" path="res://Scenes/platform.tscn" id="3_ait6c"]
 [ext_resource type="Texture2D" uid="uid://dlsc3nud4wgqi" path="res://Assets/DonkeyKong.png" id="4_vcilj"]
+[ext_resource type="Texture2D" uid="uid://ue6hgy166831" path="res://Assets/barrels.png" id="13_barrels"]
 [ext_resource type="PackedScene" uid="uid://dqka02bkf2afk" path="res://Scenes/player.tscn" id="5_bl0du"]
 [ext_resource type="PackedScene" uid="uid://dylx27rfk52yo" path="res://Scenes/barrel_spawner.tscn" id="6_q0ycs"]
 [ext_resource type="PackedScene" uid="uid://b6m62coecgu6" path="res://Scenes/hammer.tscn" id="7_hj5x7"]
@@ -92,8 +93,8 @@ length = 3.5
 [node name="Ladders6" type="Node" parent="Ladders" unique_id=539424777]
 
 [node name="Ladder3" parent="Ladders/Ladders6" unique_id=623918905 instance=ExtResource("2_t7v2y")]
-position = Vector2(-154, -300)
-length = 1.5
+position = Vector2(-154, -306)
+length = 2.5
 
 [node name="Platforms" type="Node" parent="." unique_id=1378061504]
 
@@ -253,6 +254,17 @@ position = Vector2(-340, -267)
 position = Vector2(-150, -335)
 can_be_disabled = true
 
+[node name="KongLeftPlatform" parent="Platforms/Platforms7" instance=ExtResource("3_ait6c")]
+position = Vector2(-438, -268)
+
+[node name="KongLeftPlatform2" parent="Platforms/Platforms7" instance=ExtResource("3_ait6c")]
+position = Vector2(-342, -268)
+
+[node name="BarrelsStack" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-438, -346)
+scale = Vector2(4, 4)
+texture = ExtResource("13_barrels")
 [node name="Kong" type="Sprite2D" parent="." unique_id=1926485319]
 texture_filter = 1
 position = Vector2(-310, -347)

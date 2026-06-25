@@ -11,6 +11,9 @@ const HAMMER_PIVOT   := Vector2(0, -3)
 const FALL_LIMIT_Y   := 495.0
 const FALL_DEATH_REENTRY_Y := 440.0
 const FALL_DEATH_JUMP_VELOCITY := -450.0
+const KONG_HAPPY_1 := preload("res://Assets/Kong_Happy1.png")
+const KONG_HAPPY_2 := preload("res://Assets/Kong_Happy2.png")
+const KONG_CELEBRATION_FRAME_TIME := 0.2
 
 @export var climb_speed := 250.0
 @export var ui: UI
@@ -21,6 +24,7 @@ const FALL_DEATH_JUMP_VELOCITY := -450.0
 @onready var hammer_node:  Node2D           = $Hammer
 @onready var hammer_area:  Area2D           = $HammerCollision
 @onready var hammer_timer: Timer            = $Timer
+@onready var kong_sprite: Sprite2D = get_parent().get_node_or_null("Kong") as Sprite2D
 
 var facing         := 1
 var ladder_x       := 0.0
@@ -32,6 +36,9 @@ var has_hammer     := false
 var hammer_origin: Vector2
 var dead           := false
 var death_motion   := false
+var kong_celebration_active := false
+var kong_celebration_elapsed := 0.0
+var kong_celebration_frame := 0
 var has_started_game := false
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -45,6 +52,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if dead:
+		_update_kong_celebration(delta)
 		if death_motion:
 			velocity.y += gravity * delta
 			move_and_slide()
@@ -137,7 +145,6 @@ func _manage_platform_passthrough(dir: float) -> void:
 		platform_below.enable_collision()
 		platform_below = null
 
-
 func _check_barrel_jump() -> void:
 	if is_on_floor():
 		return
@@ -166,7 +173,6 @@ func enable_climbing(x: float) -> void:
 func disable_climbing() -> void:
 	can_climb = false
 	on_ladder = false
-
 
 func pick_up_hammer() -> void:
 	has_hammer             = true
@@ -208,10 +214,31 @@ func _hammer_angle(frame: int) -> float:
 	return 0.0
 
 
+func _start_kong_celebration() -> void:
+	kong_celebration_active = true
+	kong_celebration_elapsed = 0.0
+	kong_celebration_frame = 0
+	if kong_sprite:
+		kong_sprite.texture = KONG_HAPPY_1
+
+
+func _update_kong_celebration(delta: float) -> void:
+	if not kong_celebration_active or not kong_sprite:
+		return
+
+	kong_celebration_elapsed += delta
+	if kong_celebration_elapsed < KONG_CELEBRATION_FRAME_TIME:
+		return
+
+	kong_celebration_elapsed = 0.0
+	kong_celebration_frame = 1 - kong_celebration_frame
+	kong_sprite.texture = KONG_HAPPY_1 if kong_celebration_frame == 0 else KONG_HAPPY_2
+
 func _die(from_fall := false) -> void:
 	if dead:
 		return
 	dead = true
+	_start_kong_celebration()
 	SoundManager.stop_hammer_loop()
 	death_motion = from_fall
 	set_collision_layer_value(1, false)
@@ -240,12 +267,13 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "die":
 		GameState.lose_life()
 		SoundManager.stop_all_sfx()
+		if ui:
+			ui.update_hud()
 		
 		if GameState.lives > 0:
 			LevelManager.restart_level()
 		else:
 			get_tree().call_deferred("change_scene_to_file", "res://Scenes/game_over.tscn")
-
 
 func _on_hammer_collision_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemies"):
