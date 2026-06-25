@@ -290,14 +290,14 @@ position = Vector2(-150, -335)
 can_be_disabled = true
 
 [node name="KongLeftPlatform" parent="Platforms/Platforms7" instance=ExtResource("2_fsuoi")]
-position = Vector2(-438, -322)
+position = Vector2(-438, -268)
 
 [node name="KongLeftPlatform2" parent="Platforms/Platforms7" instance=ExtResource("2_fsuoi")]
-position = Vector2(-342, -322)
+position = Vector2(-342, -268)
 
 [node name="BarrelsStack" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-438, -386)
+position = Vector2(-438, -346)
 scale = Vector2(4, 4)
 texture = ExtResource("13_barrels")
 [node name="Kong" type="Sprite2D" parent="." unique_id=2071354485]

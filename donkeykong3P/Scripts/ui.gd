@@ -23,7 +23,7 @@ func update_hud() -> void:
 	level_label.text = "L=%02d" % LevelManager.current_level
 
 	for i in range(life_icons.size()):
-		life_icons[i].visible = i < GameState.lives
+		life_icons[i].visible = i >= life_icons.size() - GameState.lives
 
 
 func set_points(points: int) -> void:

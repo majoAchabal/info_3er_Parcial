@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://d2mdcutmghayx"]
 
 [ext_resource type="Script" uid="uid://bvoye8s1de87o" path="res://Scripts/game_over.gd" id="1_ojehl"]
+[ext_resource type="FontFile" uid="uid://4ay5p4q02m81" path="res://Assets/Retro Gaming.ttf" id="2_font"]
+[ext_resource type="Texture2D" path="res://Assets/GameOver.png" id="3_gameover"]
+[ext_resource type="Texture2D" path="res://Assets/Kong_Happy1.png" id="4_kong1"]
+[ext_resource type="Texture2D" path="res://Assets/Kong_Happy2.png" id="5_kong2"]
 
 [node name="Control" type="Control" unique_id=944913880]
 layout_mode = 3
@@ -11,29 +15,65 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ojehl")
 
-[node name="GameOverLabel" type="Label" parent="." unique_id=2105078388]
-layout_mode = 0
-offset_left = 465.0
-offset_top = 196.0
-offset_right = 557.0
-offset_bottom = 219.0
-text = "GAME OVER"
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="RetryButton" type="Button" parent="." unique_id=1540184142]
-layout_mode = 0
-offset_left = 466.0
-offset_top = 285.0
-offset_right = 558.0
-offset_bottom = 316.0
-text = "TRY AGAIN"
+[node name="MenuStack" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(900, 680)
+layout_mode = 2
+theme_override_constants/separation = 42
+alignment = 1
 
-[node name="MenuButton" type="Button" parent="." unique_id=1113212335]
-layout_mode = 0
-offset_left = 447.0
-offset_top = 327.0
-offset_right = 575.0
-offset_bottom = 358.0
-text = "BACK TO MENU"
+[node name="GameOver" type="TextureRect" parent="CenterContainer/MenuStack"]
+custom_minimum_size = Vector2(860, 250)
+layout_mode = 2
+texture_filter = 1
+texture = ExtResource("3_gameover")
+expand_mode = 1
+stretch_mode = 5
 
-[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
-[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]
+[node name="Kong" type="TextureRect" parent="CenterContainer/MenuStack"]
+custom_minimum_size = Vector2(230, 160)
+layout_mode = 2
+texture_filter = 1
+texture = ExtResource("4_kong1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Options" type="HBoxContainer" parent="CenterContainer/MenuStack"]
+custom_minimum_size = Vector2(650, 72)
+layout_mode = 2
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="RetryButton" type="Button" parent="CenterContainer/MenuStack/Options"]
+custom_minimum_size = Vector2(220, 60)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0.847059, 0.145098, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "Try Again"
+flat = true
+
+[node name="MenuButton" type="Button" parent="CenterContainer/MenuStack/Options"]
+custom_minimum_size = Vector2(260, 60)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0.847059, 0.145098, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 28
+text = "Back To Menu"
+flat = true
+
+[connection signal="pressed" from="CenterContainer/MenuStack/Options/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="CenterContainer/MenuStack/Options/MenuButton" to="." method="_on_menu_button_pressed"]

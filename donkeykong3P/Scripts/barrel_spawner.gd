@@ -38,11 +38,14 @@ func _on_timeout() -> void:
 
 
 func _spawn_barrel() -> void:
-	if spawning:
+	if spawning or player.dead:
 		return
 
 	spawning = true
-	await _play_kong_throw_animation()
+	var can_spawn := await _play_kong_throw_animation()
+	if not can_spawn:
+		spawning = false
+		return
 
 	var barrel := BARREL.instantiate() as Barrel
 	barrel.speed = barrel_speed
@@ -53,9 +56,13 @@ func _spawn_barrel() -> void:
 	timer.setup()
 
 
-func _play_kong_throw_animation() -> void:
+func _play_kong_throw_animation() -> bool:
 	for texture in [KONG_LEFT, KONG_FRONT, KONG_RIGHT]:
+		if player.dead:
+			kong_sprite.texture = kong_default_texture
+			return false
 		kong_sprite.texture = texture
 		await get_tree().create_timer(KONG_THROW_FRAME_TIME).timeout
 
 	kong_sprite.texture = kong_default_texture
+	return not player.dead
