@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://cbpm0qmbh1j00" path="res://Scripts/points_manager.gd" id="8_yvrk7"]
 [ext_resource type="PackedScene" uid="uid://dlgy0os4wmmt2" path="res://Scenes/ui.tscn" id="9_fhuy1"]
 [ext_resource type="PackedScene" uid="uid://ch72anv15xyl4" path="res://Scenes/princess.tscn" id="10_i6dbo"]
+[ext_resource type="PackedScene" uid="uid://cypry1btpy4cm" path="res://Scenes/pause_menu.tscn" id="11_t7v2y"]
 
 [node name="main" type="Node" unique_id=879735258]
 
@@ -315,3 +316,5 @@ script = ExtResource("8_yvrk7")
 [node name="Princess" parent="." unique_id=238003324 instance=ExtResource("10_i6dbo")]
 position = Vector2(-158, -396)
 scale = Vector2(4, 4)
+
+[node name="Control" parent="." unique_id=938352744 instance=ExtResource("11_t7v2y")]

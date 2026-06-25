@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bohi3icddd3d"]
+[gd_scene format=3 uid="uid://bohi3icddd3d"]
 
 [ext_resource type="Texture2D" uid="uid://de0mqpgcx2lwk" path="res://Assets/screem.jpg" id="1_4h4sh"]
 [ext_resource type="PackedScene" uid="uid://brv27lb6lvel2" path="res://Scenes/platform.tscn" id="2_fsuoi"]
@@ -7,316 +7,313 @@
 [ext_resource type="PackedScene" uid="uid://dqka02bkf2afk" path="res://Scenes/player.tscn" id="6_ocowa"]
 [ext_resource type="PackedScene" uid="uid://dylx27rfk52yo" path="res://Scenes/barrel_spawner.tscn" id="7_gi5r5"]
 [ext_resource type="PackedScene" uid="uid://b6m62coecgu6" path="res://Scenes/hammer.tscn" id="8_our0n"]
-[ext_resource type="Script" path="res://Scripts/points_manager.gd" id="9_bjmgv"]
+[ext_resource type="Script" uid="uid://cbpm0qmbh1j00" path="res://Scripts/points_manager.gd" id="9_bjmgv"]
 [ext_resource type="PackedScene" uid="uid://ch72anv15xyl4" path="res://Scenes/princess.tscn" id="10_m6y0q"]
 [ext_resource type="PackedScene" uid="uid://dlgy0os4wmmt2" path="res://Scenes/ui.tscn" id="10_r50x2"]
+[ext_resource type="PackedScene" uid="uid://cypry1btpy4cm" path="res://Scenes/pause_menu.tscn" id="11_af3po"]
 
-[node name="main" type="Node"]
+[node name="main" type="Node" unique_id=1270589648]
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1035368048]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=18745239]
 position = Vector2(1353, -197)
 texture = ExtResource("1_4h4sh")
 
-[node name="Ladders" type="Node" parent="."]
+[node name="Ladders" type="Node" parent="." unique_id=923798302]
 
-[node name="Ladders1" type="Node" parent="Ladders"]
+[node name="Ladders1" type="Node" parent="Ladders" unique_id=433154828]
 
-[node name="Ladder" parent="Ladders/Ladders1" instance=ExtResource("3_2srjj")]
+[node name="Ladder" parent="Ladders/Ladders1" unique_id=1006045730 instance=ExtResource("3_2srjj")]
 position = Vector2(-73, 380)
 
-[node name="Ladder3" parent="Ladders/Ladders1" instance=ExtResource("3_2srjj")]
+[node name="Ladder3" parent="Ladders/Ladders1" unique_id=272633303 instance=ExtResource("3_2srjj")]
 position = Vector2(-74, 312)
 length = 1.0
 
-[node name="Ladder2" parent="Ladders/Ladders1" instance=ExtResource("3_2srjj")]
+[node name="Ladder2" parent="Ladders/Ladders1" unique_id=1525110132 instance=ExtResource("3_2srjj")]
 position = Vector2(322, 352)
 length = 2.5
 
-[node name="Ladders2" type="Node" parent="Ladders"]
+[node name="Ladders2" type="Node" parent="Ladders" unique_id=1032577076]
 
-[node name="Ladder" parent="Ladders/Ladders2" instance=ExtResource("3_2srjj")]
+[node name="Ladder" parent="Ladders/Ladders2" unique_id=1299077396 instance=ExtResource("3_2srjj")]
 position = Vector2(105, 226)
 length = 3.25
 
-[node name="Ladder2" parent="Ladders/Ladders2" instance=ExtResource("3_2srjj")]
+[node name="Ladder2" parent="Ladders/Ladders2" unique_id=1052069171 instance=ExtResource("3_2srjj")]
 position = Vector2(-289, 221)
 
-[node name="Ladders3" type="Node" parent="Ladders"]
+[node name="Ladders3" type="Node" parent="Ladders" unique_id=477336662]
 
-[node name="Ladder" parent="Ladders/Ladders3" instance=ExtResource("3_2srjj")]
+[node name="Ladder" parent="Ladders/Ladders3" unique_id=803528023 instance=ExtResource("3_2srjj")]
 position = Vector2(-185, 141)
 length = 1.0
 
-[node name="Ladder2" parent="Ladders/Ladders3" instance=ExtResource("3_2srjj")]
+[node name="Ladder2" parent="Ladders/Ladders3" unique_id=1669861698 instance=ExtResource("3_2srjj")]
 position = Vector2(-188, 44)
 length = 1.5
 
-[node name="Ladder3" parent="Ladders/Ladders3" instance=ExtResource("3_2srjj")]
+[node name="Ladder3" parent="Ladders/Ladders3" unique_id=1784684448 instance=ExtResource("3_2srjj")]
 position = Vector2(16, 91)
 length = 3.5
-can_barrel_go_down = true
-barrel_goes_down_chance = 0.25
 
-[node name="Ladder4" parent="Ladders/Ladders3" instance=ExtResource("3_2srjj")]
+[node name="Ladder4" parent="Ladders/Ladders3" unique_id=1571983347 instance=ExtResource("3_2srjj")]
 position = Vector2(350, 95)
 length = 2.5
-barrel_goes_down_chance = 0.75
 
-[node name="Ladders4" type="Node" parent="Ladders"]
+[node name="Ladders4" type="Node" parent="Ladders" unique_id=1247722830]
 
-[node name="Ladder" parent="Ladders/Ladders4" instance=ExtResource("3_2srjj")]
+[node name="Ladder" parent="Ladders/Ladders4" unique_id=1681562799 instance=ExtResource("3_2srjj")]
 position = Vector2(222, 4)
 length = 1.0
 
-[node name="Ladder2" parent="Ladders/Ladders4" instance=ExtResource("3_2srjj")]
+[node name="Ladder2" parent="Ladders/Ladders4" unique_id=541930086 instance=ExtResource("3_2srjj")]
 position = Vector2(221, -89)
 length = 1.5
 
-[node name="Ladder3" parent="Ladders/Ladders4" instance=ExtResource("3_2srjj")]
+[node name="Ladder3" parent="Ladders/Ladders4" unique_id=740524167 instance=ExtResource("3_2srjj")]
 position = Vector2(-77, -50)
 length = 3.0
 
-[node name="Ladder4" parent="Ladders/Ladders4" instance=ExtResource("3_2srjj")]
+[node name="Ladder4" parent="Ladders/Ladders4" unique_id=53232354 instance=ExtResource("3_2srjj")]
 position = Vector2(-273, -51)
 length = 2.5
-can_barrel_go_down = true
 
-[node name="Ladders5" type="Node" parent="Ladders"]
+[node name="Ladders5" type="Node" parent="Ladders" unique_id=703439593]
 
-[node name="Ladder" parent="Ladders/Ladders5" instance=ExtResource("3_2srjj")]
+[node name="Ladder" parent="Ladders/Ladders5" unique_id=1269569480 instance=ExtResource("3_2srjj")]
 position = Vector2(16, -148)
 length = 1.0
 
-[node name="Ladder2" parent="Ladders/Ladders5" instance=ExtResource("3_2srjj")]
+[node name="Ladder2" parent="Ladders/Ladders5" unique_id=711121989 instance=ExtResource("3_2srjj")]
 position = Vector2(15, -238)
 length = 1.0
 
-[node name="Ladder3" parent="Ladders/Ladders5" instance=ExtResource("3_2srjj")]
+[node name="Ladder3" parent="Ladders/Ladders5" unique_id=1614853793 instance=ExtResource("3_2srjj")]
 position = Vector2(317, -194)
 length = 3.5
-can_barrel_go_down = true
 
-[node name="Ladders6" type="Node" parent="Ladders"]
+[node name="Ladders6" type="Node" parent="Ladders" unique_id=1457560847]
 
-[node name="Ladder" parent="Ladders/Ladders6" instance=ExtResource("3_2srjj")]
+[node name="Ladder" parent="Ladders/Ladders6" unique_id=274426342 instance=ExtResource("3_2srjj")]
 position = Vector2(97, -314)
 
-[node name="Ladder2" parent="Ladders/Ladders6" instance=ExtResource("3_2srjj")]
+[node name="Ladder2" parent="Ladders/Ladders6" unique_id=469488562 instance=ExtResource("3_2srjj")]
 position = Vector2(-121, -300)
 length = 1.5
 
-[node name="Ladder3" parent="Ladders/Ladders6" instance=ExtResource("3_2srjj")]
+[node name="Ladder3" parent="Ladders/Ladders6" unique_id=173686951 instance=ExtResource("3_2srjj")]
 position = Vector2(-179, -300)
 length = 1.5
 
-[node name="Platforms" type="Node" parent="."]
+[node name="Platforms" type="Node" parent="." unique_id=988120738]
 
-[node name="Platforms1" type="Node" parent="Platforms"]
+[node name="Platforms1" type="Node" parent="Platforms" unique_id=992808940]
 
-[node name="Platform" parent="Platforms/Platforms1" instance=ExtResource("2_fsuoi")]
+[node name="Platform" parent="Platforms/Platforms1" unique_id=1915478789 instance=ExtResource("2_fsuoi")]
 position = Vector2(-352, 432)
 
-[node name="Platform2" parent="Platforms/Platforms1" instance=ExtResource("2_fsuoi")]
+[node name="Platform2" parent="Platforms/Platforms1" unique_id=618798365 instance=ExtResource("2_fsuoi")]
 position = Vector2(-256, 432)
 
-[node name="Platform3" parent="Platforms/Platforms1" instance=ExtResource("2_fsuoi")]
+[node name="Platform3" parent="Platforms/Platforms1" unique_id=397506395 instance=ExtResource("2_fsuoi")]
 position = Vector2(-160, 432)
 
-[node name="Platform4" parent="Platforms/Platforms1" instance=ExtResource("2_fsuoi")]
+[node name="Platform4" parent="Platforms/Platforms1" unique_id=1445114311 instance=ExtResource("2_fsuoi")]
 position = Vector2(-64, 432)
 
-[node name="Platform5" parent="Platforms/Platforms1" instance=ExtResource("2_fsuoi")]
+[node name="Platform5" parent="Platforms/Platforms1" unique_id=1550328736 instance=ExtResource("2_fsuoi")]
 position = Vector2(32, 428)
 
-[node name="Platform6" parent="Platforms/Platforms1" instance=ExtResource("2_fsuoi")]
+[node name="Platform6" parent="Platforms/Platforms1" unique_id=414820376 instance=ExtResource("2_fsuoi")]
 position = Vector2(128, 423)
 
-[node name="Platform7" parent="Platforms/Platforms1" instance=ExtResource("2_fsuoi")]
+[node name="Platform7" parent="Platforms/Platforms1" unique_id=1557496522 instance=ExtResource("2_fsuoi")]
 position = Vector2(224, 418)
 
-[node name="Platform8" parent="Platforms/Platforms1" instance=ExtResource("2_fsuoi")]
+[node name="Platform8" parent="Platforms/Platforms1" unique_id=886331805 instance=ExtResource("2_fsuoi")]
 position = Vector2(320, 413)
 
-[node name="Platforms2" type="Node" parent="Platforms"]
+[node name="Platforms2" type="Node" parent="Platforms" unique_id=633481755]
 
-[node name="Platform" parent="Platforms/Platforms2" instance=ExtResource("2_fsuoi")]
+[node name="Platform" parent="Platforms/Platforms2" unique_id=1372351175 instance=ExtResource("2_fsuoi")]
 position = Vector2(309, 303)
 can_be_disabled = true
 
-[node name="Platform2" parent="Platforms/Platforms2" instance=ExtResource("2_fsuoi")]
+[node name="Platform2" parent="Platforms/Platforms2" unique_id=1252850144 instance=ExtResource("2_fsuoi")]
 position = Vector2(213, 299)
 
-[node name="Platform3" parent="Platforms/Platforms2" instance=ExtResource("2_fsuoi")]
+[node name="Platform3" parent="Platforms/Platforms2" unique_id=1481574494 instance=ExtResource("2_fsuoi")]
 position = Vector2(117, 295)
 
-[node name="Platform4" parent="Platforms/Platforms2" instance=ExtResource("2_fsuoi")]
+[node name="Platform4" parent="Platforms/Platforms2" unique_id=2072122819 instance=ExtResource("2_fsuoi")]
 position = Vector2(21, 287)
 
-[node name="Platform5" parent="Platforms/Platforms2" instance=ExtResource("2_fsuoi")]
+[node name="Platform5" parent="Platforms/Platforms2" unique_id=131412742 instance=ExtResource("2_fsuoi")]
 position = Vector2(-75, 283)
 can_be_disabled = true
 
-[node name="Platform6" parent="Platforms/Platforms2" instance=ExtResource("2_fsuoi")]
+[node name="Platform6" parent="Platforms/Platforms2" unique_id=1230816881 instance=ExtResource("2_fsuoi")]
 position = Vector2(-171, 278)
 
-[node name="Platform7" parent="Platforms/Platforms2" instance=ExtResource("2_fsuoi")]
+[node name="Platform7" parent="Platforms/Platforms2" unique_id=1569654614 instance=ExtResource("2_fsuoi")]
 position = Vector2(-268, 273)
 
-[node name="Platform8" parent="Platforms/Platforms2" instance=ExtResource("2_fsuoi")]
+[node name="Platform8" parent="Platforms/Platforms2" unique_id=1234924452 instance=ExtResource("2_fsuoi")]
 position = Vector2(-365, 268)
 
-[node name="Platforms3" type="Node" parent="Platforms"]
+[node name="Platforms3" type="Node" parent="Platforms" unique_id=1341613755]
 
-[node name="Platform" parent="Platforms/Platforms3" instance=ExtResource("2_fsuoi")]
+[node name="Platform" parent="Platforms/Platforms3" unique_id=194383816 instance=ExtResource("2_fsuoi")]
 position = Vector2(-291, 181)
 can_be_disabled = true
 
-[node name="Platform2" parent="Platforms/Platforms3" instance=ExtResource("2_fsuoi")]
+[node name="Platform2" parent="Platforms/Platforms3" unique_id=1202255664 instance=ExtResource("2_fsuoi")]
 position = Vector2(-194, 176)
 
-[node name="Platform3" parent="Platforms/Platforms3" instance=ExtResource("2_fsuoi")]
+[node name="Platform3" parent="Platforms/Platforms3" unique_id=1432809413 instance=ExtResource("2_fsuoi")]
 position = Vector2(-98, 171)
 
-[node name="Platform4" parent="Platforms/Platforms3" instance=ExtResource("2_fsuoi")]
+[node name="Platform4" parent="Platforms/Platforms3" unique_id=1701133034 instance=ExtResource("2_fsuoi")]
 position = Vector2(-2, 166)
 
-[node name="Platform5" parent="Platforms/Platforms3" instance=ExtResource("2_fsuoi")]
+[node name="Platform5" parent="Platforms/Platforms3" unique_id=134752959 instance=ExtResource("2_fsuoi")]
 position = Vector2(93, 160)
 can_be_disabled = true
 
-[node name="Platform6" parent="Platforms/Platforms3" instance=ExtResource("2_fsuoi")]
+[node name="Platform6" parent="Platforms/Platforms3" unique_id=1775953774 instance=ExtResource("2_fsuoi")]
 position = Vector2(190, 154)
 
-[node name="Platform7" parent="Platforms/Platforms3" instance=ExtResource("2_fsuoi")]
+[node name="Platform7" parent="Platforms/Platforms3" unique_id=567276833 instance=ExtResource("2_fsuoi")]
 position = Vector2(285, 147)
 
-[node name="Platform8" parent="Platforms/Platforms3" instance=ExtResource("2_fsuoi")]
+[node name="Platform8" parent="Platforms/Platforms3" unique_id=619104411 instance=ExtResource("2_fsuoi")]
 position = Vector2(381, 142)
 
-[node name="Platforms4" type="Node" parent="Platforms"]
+[node name="Platforms4" type="Node" parent="Platforms" unique_id=1288406983]
 
-[node name="Platform" parent="Platforms/Platforms4" instance=ExtResource("2_fsuoi")]
+[node name="Platform" parent="Platforms/Platforms4" unique_id=1838577950 instance=ExtResource("2_fsuoi")]
 position = Vector2(318, 40)
 can_be_disabled = true
 
-[node name="Platform2" parent="Platforms/Platforms4" instance=ExtResource("2_fsuoi")]
+[node name="Platform2" parent="Platforms/Platforms4" unique_id=1786141002 instance=ExtResource("2_fsuoi")]
 position = Vector2(222, 35)
 
-[node name="Platform3" parent="Platforms/Platforms4" instance=ExtResource("2_fsuoi")]
+[node name="Platform3" parent="Platforms/Platforms4" unique_id=1803272325 instance=ExtResource("2_fsuoi")]
 position = Vector2(125, 31)
 
-[node name="Platform4" parent="Platforms/Platforms4" instance=ExtResource("2_fsuoi")]
+[node name="Platform4" parent="Platforms/Platforms4" unique_id=1979592975 instance=ExtResource("2_fsuoi")]
 position = Vector2(29, 24)
 can_be_disabled = true
 
-[node name="Platform5" parent="Platforms/Platforms4" instance=ExtResource("2_fsuoi")]
+[node name="Platform5" parent="Platforms/Platforms4" unique_id=848333382 instance=ExtResource("2_fsuoi")]
 position = Vector2(-68, 18)
 
-[node name="Platform6" parent="Platforms/Platforms4" instance=ExtResource("2_fsuoi")]
+[node name="Platform6" parent="Platforms/Platforms4" unique_id=591572911 instance=ExtResource("2_fsuoi")]
 position = Vector2(-165, 11)
 
-[node name="Platform7" parent="Platforms/Platforms4" instance=ExtResource("2_fsuoi")]
+[node name="Platform7" parent="Platforms/Platforms4" unique_id=1338449951 instance=ExtResource("2_fsuoi")]
 position = Vector2(-261, 5)
 
-[node name="Platform8" parent="Platforms/Platforms4" instance=ExtResource("2_fsuoi")]
+[node name="Platform8" parent="Platforms/Platforms4" unique_id=2082027986 instance=ExtResource("2_fsuoi")]
 position = Vector2(-357, -1)
 
-[node name="Platforms5" type="Node" parent="Platforms"]
+[node name="Platforms5" type="Node" parent="Platforms" unique_id=11688298]
 
-[node name="Platform" parent="Platforms/Platforms5" instance=ExtResource("2_fsuoi")]
+[node name="Platform" parent="Platforms/Platforms5" unique_id=1587382633 instance=ExtResource("2_fsuoi")]
 position = Vector2(-269, -105)
 can_be_disabled = true
 
-[node name="Platform2" parent="Platforms/Platforms5" instance=ExtResource("2_fsuoi")]
+[node name="Platform2" parent="Platforms/Platforms5" unique_id=1428289981 instance=ExtResource("2_fsuoi")]
 position = Vector2(-173, -109)
 
-[node name="Platform3" parent="Platforms/Platforms5" instance=ExtResource("2_fsuoi")]
+[node name="Platform3" parent="Platforms/Platforms5" unique_id=1593635561 instance=ExtResource("2_fsuoi")]
 position = Vector2(-77, -111)
 can_be_disabled = true
 
-[node name="Platform4" parent="Platforms/Platforms5" instance=ExtResource("2_fsuoi")]
+[node name="Platform4" parent="Platforms/Platforms5" unique_id=556285913 instance=ExtResource("2_fsuoi")]
 position = Vector2(19, -115)
 
-[node name="Platform5" parent="Platforms/Platforms5" instance=ExtResource("2_fsuoi")]
+[node name="Platform5" parent="Platforms/Platforms5" unique_id=1582891920 instance=ExtResource("2_fsuoi")]
 position = Vector2(115, -120)
 
-[node name="Platform6" parent="Platforms/Platforms5" instance=ExtResource("2_fsuoi")]
+[node name="Platform6" parent="Platforms/Platforms5" unique_id=240370195 instance=ExtResource("2_fsuoi")]
 position = Vector2(211, -125)
 
-[node name="Platform7" parent="Platforms/Platforms5" instance=ExtResource("2_fsuoi")]
+[node name="Platform7" parent="Platforms/Platforms5" unique_id=1418565096 instance=ExtResource("2_fsuoi")]
 position = Vector2(307, -128)
 
-[node name="Platform8" parent="Platforms/Platforms5" instance=ExtResource("2_fsuoi")]
+[node name="Platform8" parent="Platforms/Platforms5" unique_id=448982987 instance=ExtResource("2_fsuoi")]
 position = Vector2(402, -135)
 
-[node name="Platforms6" type="Node" parent="Platforms"]
+[node name="Platforms6" type="Node" parent="Platforms" unique_id=392519611]
 
-[node name="Platform" parent="Platforms/Platforms6" instance=ExtResource("2_fsuoi")]
+[node name="Platform" parent="Platforms/Platforms6" unique_id=1545071909 instance=ExtResource("2_fsuoi")]
 position = Vector2(331, -260)
 can_be_disabled = true
 
-[node name="Platform2" parent="Platforms/Platforms6" instance=ExtResource("2_fsuoi")]
+[node name="Platform2" parent="Platforms/Platforms6" unique_id=870753056 instance=ExtResource("2_fsuoi")]
 position = Vector2(235, -264)
 
-[node name="Platform3" parent="Platforms/Platforms6" instance=ExtResource("2_fsuoi")]
+[node name="Platform3" parent="Platforms/Platforms6" unique_id=9459868 instance=ExtResource("2_fsuoi")]
 position = Vector2(139, -267)
 can_be_disabled = true
 
-[node name="Platform4" parent="Platforms/Platforms6" instance=ExtResource("2_fsuoi")]
+[node name="Platform4" parent="Platforms/Platforms6" unique_id=662893596 instance=ExtResource("2_fsuoi")]
 position = Vector2(43, -267)
 can_be_disabled = true
 
-[node name="Platform5" parent="Platforms/Platforms6" instance=ExtResource("2_fsuoi")]
+[node name="Platform5" parent="Platforms/Platforms6" unique_id=2087983716 instance=ExtResource("2_fsuoi")]
 position = Vector2(-52, -267)
 
-[node name="Platform6" parent="Platforms/Platforms6" instance=ExtResource("2_fsuoi")]
+[node name="Platform6" parent="Platforms/Platforms6" unique_id=2078988250 instance=ExtResource("2_fsuoi")]
 position = Vector2(-148, -267)
 
-[node name="Platform7" parent="Platforms/Platforms6" instance=ExtResource("2_fsuoi")]
+[node name="Platform7" parent="Platforms/Platforms6" unique_id=457375918 instance=ExtResource("2_fsuoi")]
 position = Vector2(-244, -267)
 
-[node name="Platform8" parent="Platforms/Platforms6" instance=ExtResource("2_fsuoi")]
+[node name="Platform8" parent="Platforms/Platforms6" unique_id=1337717656 instance=ExtResource("2_fsuoi")]
 position = Vector2(-340, -267)
 
-[node name="Platforms7" type="Node" parent="Platforms"]
+[node name="Platforms7" type="Node" parent="Platforms" unique_id=1138728417]
 
-[node name="Platform" parent="Platforms/Platforms7" instance=ExtResource("2_fsuoi")]
+[node name="Platform" parent="Platforms/Platforms7" unique_id=472303573 instance=ExtResource("2_fsuoi")]
 position = Vector2(77, -354)
 can_be_disabled = true
 
-[node name="Platform2" parent="Platforms/Platforms7" instance=ExtResource("2_fsuoi")]
+[node name="Platform2" parent="Platforms/Platforms7" unique_id=2123344357 instance=ExtResource("2_fsuoi")]
 position = Vector2(-18, -354)
 
-[node name="Platform3" parent="Platforms/Platforms7" instance=ExtResource("2_fsuoi")]
+[node name="Platform3" parent="Platforms/Platforms7" unique_id=248255730 instance=ExtResource("2_fsuoi")]
 position = Vector2(-150, -335)
 can_be_disabled = true
 
-[node name="Kong" type="Sprite2D" parent="."]
+[node name="Kong" type="Sprite2D" parent="." unique_id=1687915835]
 texture_filter = 1
 position = Vector2(-310, -347)
 scale = Vector2(4, 4)
 texture = ExtResource("4_jb7vw")
 
-[node name="Player" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("6_ocowa")]
+[node name="Player" parent="." unique_id=1023004730 node_paths=PackedStringArray("ui") instance=ExtResource("6_ocowa")]
 position = Vector2(-352, 384)
 scale = Vector2(4, 4)
 ui = NodePath("../UI")
 
-[node name="BarrelSpawner" parent="." instance=ExtResource("7_gi5r5")]
+[node name="BarrelSpawner" parent="." unique_id=1354167591 instance=ExtResource("7_gi5r5")]
 position = Vector2(-311, -297)
 
-[node name="Hammer" parent="." instance=ExtResource("8_our0n")]
+[node name="Hammer" parent="." unique_id=1047296904 instance=ExtResource("8_our0n")]
 position = Vector2(-396, 201)
 scale = Vector2(4, 4)
 
-[node name="PointsManager" type="Node" parent="."]
+[node name="PointsManager" type="Node" parent="." unique_id=440970153]
 script = ExtResource("9_bjmgv")
 
-[node name="UI" parent="." instance=ExtResource("10_r50x2")]
+[node name="UI" parent="." unique_id=1716354272 instance=ExtResource("10_r50x2")]
 
-[node name="Princess" parent="." node_paths=PackedStringArray("ui") instance=ExtResource("10_m6y0q")]
+[node name="Princess" parent="." unique_id=116111195 instance=ExtResource("10_m6y0q")]
 position = Vector2(-158, -396)
 scale = Vector2(4, 4)
-ui = NodePath("../UI")
+
+[node name="Control" parent="." unique_id=938352744 instance=ExtResource("11_af3po")]

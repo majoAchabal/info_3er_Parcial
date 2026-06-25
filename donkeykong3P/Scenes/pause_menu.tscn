@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cypry1btpy4cm"]
+
+[ext_resource type="Script" uid="uid://brsegwtee4ly1" path="res://Scripts/pause_menu.gd" id="1_emv3i"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=841294033]
+process_mode = 3
+script = ExtResource("1_emv3i")
+
+[node name="Control" type="Control" parent="." unique_id=1557845588]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=86189386]
+layout_mode = 0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1945514936]
+custom_minimum_size = Vector2(220, 50)
+layout_mode = 0
+offset_right = 220.0
+offset_bottom = 128.0
+
+[node name="PauseLabel" type="Label" parent="Control/VBoxContainer" unique_id=1406384484]
+layout_mode = 2
+text = "PAUSED"
+
+[node name="ResumeButton" type="Button" parent="Control/VBoxContainer" unique_id=594588025]
+process_mode = 3
+layout_mode = 2
+text = "RESUME"
+
+[node name="RestartButton" type="Button" parent="Control/VBoxContainer" unique_id=136369878]
+process_mode = 3
+layout_mode = 2
+text = "RESTART LEVEL"
+
+[node name="MenuButton" type="Button" parent="Control/VBoxContainer" unique_id=102384853]
+process_mode = 3
+layout_mode = 2
+text = "BACK TO MENU"
+
+[connection signal="pressed" from="Control/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]
