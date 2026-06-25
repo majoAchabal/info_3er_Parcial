@@ -235,7 +235,7 @@ ui = NodePath("../UI")
 
 [node name="BarrelSpawner" parent="." unique_id=1756485173 instance=ExtResource("6_xjeco")]
 position = Vector2(-311, -297)
-barrel_speed = 280.0
+barrel_speed = 290.0
 
 [node name="Hammer" parent="." unique_id=2078989970 instance=ExtResource("7_j77fg")]
 position = Vector2(-347, 304)
