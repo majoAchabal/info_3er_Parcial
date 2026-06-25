@@ -1,20 +1,29 @@
 extends Node2D
 
 const BARREL := preload("res://Scenes/barrel.tscn")
+const KONG_LEFT := preload("res://Assets/Kong_Left.png")
+const KONG_FRONT := preload("res://Assets/Kong_Front.png")
+const KONG_RIGHT := preload("res://Assets/Kong_Right.png")
+const KONG_THROW_FRAME_TIME := 0.18
+const BARREL_SPAWN_OFFSET := Vector2(52, 0)
 
 @export var spawn_interval := 2.0
 @export var barrel_speed := 200.0
 
 @onready var timer: SpawnTimer = $SpawnTimer
 @onready var player: Player = $"../Player"
+@onready var kong_sprite: Sprite2D = $"../Kong"
 
 var started := false
+var spawning := false
+var kong_default_texture: Texture2D
 
 
 func _ready() -> void:
 	timer.wait_time = spawn_interval
 	timer.timeout.connect(_on_timeout)
 	player.game_started.connect(_on_game_started)
+	kong_default_texture = kong_sprite.texture
 
 
 func _on_game_started() -> void:
@@ -29,7 +38,24 @@ func _on_timeout() -> void:
 
 
 func _spawn_barrel() -> void:
-	timer.setup()
+	if spawning:
+		return
+
+	spawning = true
+	await _play_kong_throw_animation()
+
 	var barrel := BARREL.instantiate() as Barrel
 	barrel.speed = barrel_speed
+	barrel.position = BARREL_SPAWN_OFFSET
 	add_child(barrel)
+
+	spawning = false
+	timer.setup()
+
+
+func _play_kong_throw_animation() -> void:
+	for texture in [KONG_LEFT, KONG_FRONT, KONG_RIGHT]:
+		kong_sprite.texture = texture
+		await get_tree().create_timer(KONG_THROW_FRAME_TIME).timeout
+
+	kong_sprite.texture = kong_default_texture

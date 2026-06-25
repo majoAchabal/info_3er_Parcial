@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7m3ku44r8e66" path="res://Scenes/ladder.tscn" id="2_jtv8s"]
 [ext_resource type="PackedScene" uid="uid://brv27lb6lvel2" path="res://Scenes/platform.tscn" id="3_c81s1"]
 [ext_resource type="Texture2D" uid="uid://dlsc3nud4wgqi" path="res://Assets/DonkeyKong.png" id="4_n4vm5"]
+[ext_resource type="Texture2D" uid="uid://ue6hgy166831" path="res://Assets/barrels.png" id="13_barrels"]
 [ext_resource type="PackedScene" uid="uid://dqka02bkf2afk" path="res://Scenes/player.tscn" id="5_fxnjf"]
 [ext_resource type="PackedScene" uid="uid://dylx27rfk52yo" path="res://Scenes/barrel_spawner.tscn" id="6_xjeco"]
 [ext_resource type="PackedScene" uid="uid://b6m62coecgu6" path="res://Scenes/hammer.tscn" id="7_j77fg"]
@@ -221,6 +222,17 @@ position = Vector2(-340, -267)
 position = Vector2(-150, -335)
 can_be_disabled = true
 
+[node name="KongLeftPlatform" parent="Platforms/Platforms7" instance=ExtResource("3_c81s1")]
+position = Vector2(-438, -322)
+
+[node name="KongLeftPlatform2" parent="Platforms/Platforms7" instance=ExtResource("3_c81s1")]
+position = Vector2(-342, -322)
+
+[node name="BarrelsStack" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-438, -386)
+scale = Vector2(4, 4)
+texture = ExtResource("13_barrels")
 [node name="Kong" type="Sprite2D" parent="." unique_id=539173138]
 texture_filter = 1
 position = Vector2(-310, -347)
