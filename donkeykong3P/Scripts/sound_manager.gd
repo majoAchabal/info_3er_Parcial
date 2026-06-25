@@ -11,6 +11,8 @@ var point_sound = preload("res://Assets/Sounds/point.wav")
 var hammer_hit_sound = preload("res://Assets/Sounds/hammerhit.wav")
 var fall_sound = preload("res://Assets/Sounds/fall.wav")
 
+var walking_sound = preload("res://Assets/Sounds/walk.wav")
+
 
 var hammer_player := AudioStreamPlayer.new()
 var hammer_loop_active := false
@@ -120,3 +122,12 @@ func play_hammer_hit():
 
 func play_fall():
 	play(fall_sound)
+
+
+func play_walking():
+	var audio := AudioStreamPlayer.new()
+	add_child(audio)
+	audio.stream = walking_sound
+	audio.volume_db = -10
+	audio.play()
+	audio.finished.connect(audio.queue_free)

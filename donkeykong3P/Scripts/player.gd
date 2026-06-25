@@ -59,6 +59,7 @@ func _physics_process(delta: float) -> void:
 	_handle_climbing(delta)
 	_check_barrel_jump()
 	_check_fall_limit()
+	
 
 func _check_game_start() -> void:
 	if has_started_game:
@@ -88,7 +89,7 @@ func _handle_horizontal() -> void:
 		sprite.flip_h = dir < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, SPEED)
-
+		
 
 func _handle_collisions() -> void:
 	var col := get_last_slide_collision() as KinematicCollision2D
@@ -184,11 +185,15 @@ func _on_hammer_expired() -> void:
 
 
 func _on_frame_changed() -> void:
+	if sprite.animation in ["run", "run_hammer"] and sprite.frame == 0:
+		SoundManager.play_walking()
+
 	if not has_hammer or on_ladder:
 		return
-	var angle            := _hammer_angle(sprite.frame)
-	hammer_node.position  = HAMMER_PIVOT + (hammer_origin - HAMMER_PIVOT).rotated(angle)
-	hammer_node.rotation  = angle
+
+	var angle = _hammer_angle(sprite.frame)
+	hammer_node.position = HAMMER_PIVOT + (hammer_origin - HAMMER_PIVOT).rotated(angle)
+	hammer_node.rotation = angle
 
 
 func _hammer_angle(frame: int) -> float:
@@ -214,6 +219,7 @@ func _die(from_fall := false) -> void:
 		SoundManager.play_death()
 		gravity = 0.0
 		velocity = Vector2.ZERO
+
 	sprite.play("die")
 
 

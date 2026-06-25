@@ -34,12 +34,16 @@ length = 1.0
 [node name="Ladder2" parent="Ladders/Ladders1" unique_id=1525110132 instance=ExtResource("3_2srjj")]
 position = Vector2(322, 352)
 length = 2.5
+can_barrel_drop = true
+drop_chance = 0.3
 
 [node name="Ladders2" type="Node" parent="Ladders" unique_id=1032577076]
 
 [node name="Ladder" parent="Ladders/Ladders2" unique_id=1299077396 instance=ExtResource("3_2srjj")]
 position = Vector2(105, 226)
 length = 3.25
+can_barrel_drop = true
+drop_chance = 0.2
 
 [node name="Ladder2" parent="Ladders/Ladders2" unique_id=1052069171 instance=ExtResource("3_2srjj")]
 position = Vector2(-289, 221)
@@ -57,6 +61,8 @@ length = 1.5
 [node name="Ladder3" parent="Ladders/Ladders3" unique_id=1784684448 instance=ExtResource("3_2srjj")]
 position = Vector2(16, 91)
 length = 3.5
+can_barrel_drop = true
+drop_chance = 0.3
 
 [node name="Ladder4" parent="Ladders/Ladders3" unique_id=1571983347 instance=ExtResource("3_2srjj")]
 position = Vector2(350, 95)
@@ -75,6 +81,8 @@ length = 1.5
 [node name="Ladder3" parent="Ladders/Ladders4" unique_id=740524167 instance=ExtResource("3_2srjj")]
 position = Vector2(-77, -50)
 length = 3.0
+can_barrel_drop = true
+drop_chance = 0.2
 
 [node name="Ladder4" parent="Ladders/Ladders4" unique_id=53232354 instance=ExtResource("3_2srjj")]
 position = Vector2(-273, -51)
