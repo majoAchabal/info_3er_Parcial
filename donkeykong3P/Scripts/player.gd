@@ -223,4 +223,9 @@ func _on_hammer_collision_body_entered(body: Node) -> void:
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "die":
-		ui.show_lose_ui()
+		GameState.lose_life()
+		
+		if GameState.lives > 0:
+			LevelManager.restart_level()
+		else:
+			get_tree().call_deferred("change_scene_to_file", "res://Scenes/game_over.tscn")

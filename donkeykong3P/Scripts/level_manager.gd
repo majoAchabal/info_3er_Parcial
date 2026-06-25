@@ -9,6 +9,7 @@ var levels := {
 }
 
 func start_game():
+	GameState.reset_game()
 	current_level = 1
 	load_level(current_level)
 

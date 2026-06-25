@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://d2mdcutmghayx"]
+
+[ext_resource type="Script" uid="uid://bvoye8s1de87o" path="res://Scripts/game_over.gd" id="1_ojehl"]
+
+[node name="Control" type="Control" unique_id=944913880]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ojehl")
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=2105078388]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 196.0
+offset_right = 557.0
+offset_bottom = 219.0
+text = "GAME OVER"
+
+[node name="RetryButton" type="Button" parent="." unique_id=1540184142]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 285.0
+offset_right = 558.0
+offset_bottom = 316.0
+text = "TRY AGAIN"
+
+[node name="MenuButton" type="Button" parent="." unique_id=1113212335]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 327.0
+offset_right = 575.0
+offset_bottom = 358.0
+text = "BACK TO MENU"
+
+[connection signal="pressed" from="RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="MenuButton" to="." method="_on_menu_button_pressed"]

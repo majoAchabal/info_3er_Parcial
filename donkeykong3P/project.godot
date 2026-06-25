@@ -23,6 +23,7 @@ config/icon="res://Assets/icon.svg"
 
 LevelManager="*uid://bvcmlulhrx2qt"
 SoundManager="*uid://cmns0yd7q05ud"
+GameState="*uid://kenyhqwr58sm"
 
 [display]
 
