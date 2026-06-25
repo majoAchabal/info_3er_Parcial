@@ -1,6 +1,11 @@
-[gd_scene format=3 uid="uid://d2taddhvyschk"]
+[gd_scene load_steps=7 format=3 uid="uid://d2taddhvyschk"]
 
 [ext_resource type="Script" uid="uid://bxwgfmkhkk8vd" path="res://Scripts/win_screen.gd" id="1_l5sol"]
+[ext_resource type="FontFile" uid="uid://4ay5p4q02m81" path="res://Assets/Retro Gaming.ttf" id="2_font"]
+[ext_resource type="Texture2D" path="res://Assets/win.png" id="3_win"]
+[ext_resource type="Texture2D" uid="uid://py4etqmgl831" path="res://Assets/Princess.png" id="4_princess"]
+[ext_resource type="Texture2D" uid="uid://b4qwh8hc6hxcv" path="res://Assets/heart.png" id="5_heart"]
+[ext_resource type="Texture2D" uid="uid://bg1exf8smy5e8" path="res://Assets/Mario_Run1.png" id="6_mario"]
 
 [node name="Control" type="Control" unique_id=868059047]
 layout_mode = 3
@@ -11,20 +16,80 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l5sol")
 
-[node name="Label" type="Label" parent="." unique_id=128487537]
-layout_mode = 0
-offset_left = 456.0
-offset_top = 142.0
-offset_right = 532.0
-offset_bottom = 165.0
-text = "YOU WIN!"
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Button" type="Button" parent="." unique_id=1169197672]
+[node name="WinStack" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(820, 650)
+layout_mode = 2
+theme_override_constants/separation = 26
+alignment = 1
+
+[node name="WinTitle" type="TextureRect" parent="CenterContainer/WinStack"]
+custom_minimum_size = Vector2(760, 285)
+layout_mode = 2
+texture_filter = 1
+texture = ExtResource("3_win")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CharacterStage" type="Control" parent="CenterContainer/WinStack"]
+custom_minimum_size = Vector2(720, 205)
+layout_mode = 2
+
+[node name="Princess" type="TextureRect" parent="CenterContainer/WinStack/CharacterStage"]
+layout_mode = 0
+offset_left = 234.0
+offset_top = 52.0
+offset_right = 382.0
+offset_bottom = 200.0
+texture_filter = 1
+texture = ExtResource("4_princess")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Heart" type="TextureRect" parent="CenterContainer/WinStack/CharacterStage"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 12.0
+offset_right = 444.0
+offset_bottom = 80.0
+texture_filter = 1
+texture = ExtResource("5_heart")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Mario" type="TextureRect" parent="CenterContainer/WinStack/CharacterStage"]
 layout_mode = 0
 offset_left = 438.0
-offset_top = 325.0
-offset_right = 566.0
-offset_bottom = 356.0
-text = "BACK TO MENU"
+offset_top = 74.0
+offset_right = 558.0
+offset_bottom = 202.0
+texture_filter = 1
+texture = ExtResource("6_mario")
+expand_mode = 1
+stretch_mode = 5
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="CenterContainer/WinStack" unique_id=1169197672]
+custom_minimum_size = Vector2(460, 82)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 0.847059, 0.145098, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 42
+text = "BACK TO MENU"
+flat = true
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.35
+autostart = true
+
+[connection signal="pressed" from="CenterContainer/WinStack/Button" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
