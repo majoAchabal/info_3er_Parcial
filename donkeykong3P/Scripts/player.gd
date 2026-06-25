@@ -144,6 +144,7 @@ func _check_barrel_jump() -> void:
 	if body is Barrel and last_barrel_id == null:
 		last_barrel_id = body.get_rid()
 		award_points.emit(body.global_position)
+		SoundManager.play_point()
 
 func _check_fall_limit() -> void:
 	if position.y > FALL_LIMIT_Y:
@@ -203,13 +204,14 @@ func _die(from_fall := false) -> void:
 		return
 	dead = true
 	SoundManager.stop_hammer_loop()
-	SoundManager.play_death()
 	death_motion = from_fall
 	set_collision_layer_value(1, false)
 	if from_fall:
+		SoundManager.play_fall()
 		position.y = min(position.y, FALL_DEATH_REENTRY_Y)
 		velocity = Vector2(0, FALL_DEATH_JUMP_VELOCITY)
 	else:
+		SoundManager.play_death()
 		gravity = 0.0
 		velocity = Vector2.ZERO
 	sprite.play("die")
@@ -217,6 +219,7 @@ func _die(from_fall := false) -> void:
 
 func _on_hammer_collision_body_entered(body: Node) -> void:
 	if body is Barrel:
+		SoundManager.play_hammer_hit()
 		award_points.emit(body.global_position)
 		body.queue_free()
 

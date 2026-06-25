@@ -1,5 +1,8 @@
 extends Control
 
+func _ready() -> void:
+	SoundManager.stop_music()
+
 func _on_retry_button_pressed() -> void:
 	LevelManager.start_game()
 
