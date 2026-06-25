@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ch72anv15xyl4" path="res://Scenes/princess.tscn" id="10_m6y0q"]
 [ext_resource type="PackedScene" uid="uid://dlgy0os4wmmt2" path="res://Scenes/ui.tscn" id="10_r50x2"]
 [ext_resource type="PackedScene" uid="uid://cypry1btpy4cm" path="res://Scenes/pause_menu.tscn" id="11_af3po"]
+[ext_resource type="PackedScene" uid="uid://v0mmvu8hpeb5" path="res://Scenes/level_transition.tscn" id="12_uy8f0"]
 
 [node name="main" type="Node" unique_id=1270589648]
 
@@ -325,3 +326,5 @@ position = Vector2(-158, -396)
 scale = Vector2(4, 4)
 
 [node name="Control" parent="." unique_id=938352744 instance=ExtResource("11_af3po")]
+
+[node name="LevelTransition" parent="." unique_id=965730594 instance=ExtResource("12_uy8f0")]

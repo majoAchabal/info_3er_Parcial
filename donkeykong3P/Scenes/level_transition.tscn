@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://v0mmvu8hpeb5"]
+
+[ext_resource type="Script" uid="uid://x8jeyhg1fmtq" path="res://Scripts/level_transition.gd" id="1_30st1"]
+
+[node name="LevelTransition" type="CanvasLayer" unique_id=965730594]
+script = ExtResource("1_30st1")
+
+[node name="Control" type="Control" parent="." unique_id=1420896733]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=954096737]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=388289423]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -25.0
+offset_right = 20.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LevelLabel" type="Label" parent="Control/VBoxContainer" unique_id=658124168]
+layout_mode = 2
+text = "LEVEL 1"
+
+[node name="ReadyLabel" type="Label" parent="Control/VBoxContainer" unique_id=1213631038]
+layout_mode = 2
+text = "READY!"

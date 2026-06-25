@@ -16,6 +16,7 @@ func start_game():
 func load_level(level_number: int):
 	SoundManager.play_level_music()
 	get_tree().call_deferred("change_scene_to_file", levels[level_number])
+	
 
 func next_level():
 	current_level += 1
