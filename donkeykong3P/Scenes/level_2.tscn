@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c7m3ku44r8e66" path="res://Scenes/ladder.tscn" id="2_t7v2y"]
 [ext_resource type="PackedScene" uid="uid://brv27lb6lvel2" path="res://Scenes/platform.tscn" id="3_ait6c"]
 [ext_resource type="Texture2D" uid="uid://dlsc3nud4wgqi" path="res://Assets/DonkeyKong.png" id="4_vcilj"]
-[ext_resource type="Texture2D" uid="uid://ue6hgy166831" path="res://Assets/barrels.png" id="13_barrels"]
 [ext_resource type="PackedScene" uid="uid://dqka02bkf2afk" path="res://Scenes/player.tscn" id="5_bl0du"]
 [ext_resource type="PackedScene" uid="uid://dylx27rfk52yo" path="res://Scenes/barrel_spawner.tscn" id="6_q0ycs"]
 [ext_resource type="PackedScene" uid="uid://b6m62coecgu6" path="res://Scenes/hammer.tscn" id="7_hj5x7"]
@@ -13,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ch72anv15xyl4" path="res://Scenes/princess.tscn" id="10_i6dbo"]
 [ext_resource type="PackedScene" uid="uid://cypry1btpy4cm" path="res://Scenes/pause_menu.tscn" id="11_t7v2y"]
 [ext_resource type="PackedScene" uid="uid://v0mmvu8hpeb5" path="res://Scenes/level_transition.tscn" id="12_ait6c"]
+[ext_resource type="Texture2D" uid="uid://ue6hgy166831" path="res://Assets/barrels.png" id="13_barrels"]
 [ext_resource type="PackedScene" uid="uid://by7wv38ewxr83" path="res://Scenes/enemy.tscn" id="13_vcilj"]
 
 [node name="main" type="Node" unique_id=879735258]
@@ -47,11 +47,11 @@ position = Vector2(-289, 221)
 [node name="Ladders3" type="Node" parent="Ladders" unique_id=1527178181]
 
 [node name="Ladder" parent="Ladders/Ladders3" unique_id=792708539 instance=ExtResource("2_t7v2y")]
-position = Vector2(-262, 150)
+position = Vector2(-247, 150)
 length = 1.0
 
 [node name="Ladder2" parent="Ladders/Ladders3" unique_id=1194669330 instance=ExtResource("2_t7v2y")]
-position = Vector2(-249, 44)
+position = Vector2(-245, 44)
 length = 1.5
 
 [node name="Ladder4" parent="Ladders/Ladders3" unique_id=683301400 instance=ExtResource("2_t7v2y")]
@@ -69,7 +69,7 @@ position = Vector2(221, -89)
 length = 1.5
 
 [node name="Ladder3" parent="Ladders/Ladders4" unique_id=886644640 instance=ExtResource("2_t7v2y")]
-position = Vector2(-265, -55)
+position = Vector2(-328, -58)
 length = 3.0
 can_barrel_drop = true
 drop_chance = 0.4
@@ -198,7 +198,7 @@ position = Vector2(-357, -1)
 [node name="Platforms5" type="Node" parent="Platforms" unique_id=1491501622]
 
 [node name="Platform" parent="Platforms/Platforms5" unique_id=1780611741 instance=ExtResource("3_ait6c")]
-position = Vector2(-269, -110)
+position = Vector2(-298, -114)
 can_be_disabled = true
 
 [node name="Platform2" parent="Platforms/Platforms5" unique_id=1769750542 instance=ExtResource("3_ait6c")]
@@ -254,17 +254,18 @@ position = Vector2(-340, -267)
 position = Vector2(-150, -335)
 can_be_disabled = true
 
-[node name="KongLeftPlatform" parent="Platforms/Platforms7" instance=ExtResource("3_ait6c")]
+[node name="KongLeftPlatform" parent="Platforms/Platforms7" unique_id=1730074462 instance=ExtResource("3_ait6c")]
 position = Vector2(-438, -268)
 
-[node name="KongLeftPlatform2" parent="Platforms/Platforms7" instance=ExtResource("3_ait6c")]
+[node name="KongLeftPlatform2" parent="Platforms/Platforms7" unique_id=433605697 instance=ExtResource("3_ait6c")]
 position = Vector2(-342, -268)
 
-[node name="BarrelsStack" type="Sprite2D" parent="."]
+[node name="BarrelsStack" type="Sprite2D" parent="." unique_id=1200508989]
 texture_filter = 1
 position = Vector2(-438, -346)
 scale = Vector2(4, 4)
 texture = ExtResource("13_barrels")
+
 [node name="Kong" type="Sprite2D" parent="." unique_id=1926485319]
 texture_filter = 1
 position = Vector2(-310, -347)
