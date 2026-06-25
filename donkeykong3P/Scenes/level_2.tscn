@@ -92,8 +92,8 @@ length = 3.5
 [node name="Ladders6" type="Node" parent="Ladders" unique_id=539424777]
 
 [node name="Ladder3" parent="Ladders/Ladders6" unique_id=623918905 instance=ExtResource("2_t7v2y")]
-position = Vector2(-154, -300)
-length = 1.5
+position = Vector2(-154, -306)
+length = 2.5
 
 [node name="Platforms" type="Node" parent="." unique_id=1378061504]
 

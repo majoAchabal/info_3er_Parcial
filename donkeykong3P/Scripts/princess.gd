@@ -47,6 +47,11 @@ func _update_help_bubble(delta: float) -> void:
 	help_sprite.visible = help_elapsed < HELP_VISIBLE_TIME and not triggered
 
 
+func _stop_kong_barrel_throwing() -> void:
+	var spawner := get_parent().get_node_or_null("BarrelSpawner")
+	if spawner and spawner.has_method("stop_for_win"):
+		spawner.stop_for_win()
+
 func _start_kong_jump() -> void:
 	if kong_jumping:
 		return
@@ -71,6 +76,7 @@ func _on_body_entered(body: Node) -> void:
 	if body is Player:
 		triggered = true
 		help_sprite.hide()
+		_stop_kong_barrel_throwing()
 		_start_kong_jump()
 
 		var heart = HEART.instantiate()

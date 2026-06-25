@@ -16,6 +16,7 @@ const BARREL_SPAWN_OFFSET := Vector2(52, 0)
 
 var started := false
 var spawning := false
+var stopped_for_win := false
 var kong_default_texture: Texture2D
 
 
@@ -25,6 +26,12 @@ func _ready() -> void:
 	player.game_started.connect(_on_game_started)
 	kong_default_texture = kong_sprite.texture
 
+
+func stop_for_win() -> void:
+	stopped_for_win = true
+	spawning = false
+	timer.stop()
+	kong_sprite.texture = kong_default_texture
 
 func _on_game_started() -> void:
 	if started:
@@ -38,7 +45,7 @@ func _on_timeout() -> void:
 
 
 func _spawn_barrel() -> void:
-	if spawning or player.dead:
+	if spawning or stopped_for_win or player.dead:
 		return
 
 	spawning = true
@@ -58,11 +65,11 @@ func _spawn_barrel() -> void:
 
 func _play_kong_throw_animation() -> bool:
 	for texture in [KONG_LEFT, KONG_FRONT, KONG_RIGHT]:
-		if player.dead:
+		if stopped_for_win or player.dead:
 			kong_sprite.texture = kong_default_texture
 			return false
 		kong_sprite.texture = texture
 		await get_tree().create_timer(KONG_THROW_FRAME_TIME).timeout
 
 	kong_sprite.texture = kong_default_texture
-	return not player.dead
+	return not stopped_for_win and not player.dead

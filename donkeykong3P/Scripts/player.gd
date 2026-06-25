@@ -145,7 +145,6 @@ func _manage_platform_passthrough(dir: float) -> void:
 		platform_below.enable_collision()
 		platform_below = null
 
-
 func _check_barrel_jump() -> void:
 	if is_on_floor():
 		return
@@ -174,7 +173,6 @@ func enable_climbing(x: float) -> void:
 func disable_climbing() -> void:
 	can_climb = false
 	on_ladder = false
-
 
 func pick_up_hammer() -> void:
 	has_hammer             = true

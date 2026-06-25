@@ -24,13 +24,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MenuStack" type="VBoxContainer" parent="CenterContainer"]
-custom_minimum_size = Vector2(900, 680)
+custom_minimum_size = Vector2(1000, 780)
 layout_mode = 2
 theme_override_constants/separation = 42
 alignment = 1
 
 [node name="GameOver" type="TextureRect" parent="CenterContainer/MenuStack"]
-custom_minimum_size = Vector2(860, 250)
+custom_minimum_size = Vector2(1000, 360)
 layout_mode = 2
 texture_filter = 1
 texture = ExtResource("3_gameover")
@@ -46,33 +46,33 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Options" type="HBoxContainer" parent="CenterContainer/MenuStack"]
-custom_minimum_size = Vector2(650, 72)
+custom_minimum_size = Vector2(900, 96)
 layout_mode = 2
-theme_override_constants/separation = 130
+theme_override_constants/separation = 150
 alignment = 1
 
 [node name="RetryButton" type="Button" parent="CenterContainer/MenuStack/Options"]
-custom_minimum_size = Vector2(220, 60)
+custom_minimum_size = Vector2(330, 90)
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 0.847059, 0.145098, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 28
-text = "Try Again"
+theme_override_font_sizes/font_size = 40
+text = "TRY AGAIN"
 flat = true
 
 [node name="MenuButton" type="Button" parent="CenterContainer/MenuStack/Options"]
-custom_minimum_size = Vector2(260, 60)
+custom_minimum_size = Vector2(390, 90)
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 0.847059, 0.145098, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_font")
-theme_override_font_sizes/font_size = 28
-text = "Back To Menu"
+theme_override_font_sizes/font_size = 40
+text = "BACK TO MENU"
 flat = true
 
 [connection signal="pressed" from="CenterContainer/MenuStack/Options/RetryButton" to="." method="_on_retry_button_pressed"]
