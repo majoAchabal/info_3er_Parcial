@@ -30,6 +30,10 @@ GameState="*uid://kenyhqwr58sm"
 window/size/viewport_width=1000
 window/size/viewport_height=1000
 
+[global_group]
+
+enemies=""
+
 [input]
 
 left={

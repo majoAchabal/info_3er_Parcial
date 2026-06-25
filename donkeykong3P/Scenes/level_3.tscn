@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dlgy0os4wmmt2" path="res://Scenes/ui.tscn" id="9_nbwsh"]
 [ext_resource type="PackedScene" uid="uid://ch72anv15xyl4" path="res://Scenes/princess.tscn" id="10_kgmqw"]
 [ext_resource type="PackedScene" uid="uid://v0mmvu8hpeb5" path="res://Scenes/level_transition.tscn" id="11_jtv8s"]
+[ext_resource type="PackedScene" uid="uid://by7wv38ewxr83" path="res://Scenes/enemy.tscn" id="12_c81s1"]
 
 [node name="main" type="Node" unique_id=110918724]
 
@@ -234,10 +235,10 @@ ui = NodePath("../UI")
 
 [node name="BarrelSpawner" parent="." unique_id=1756485173 instance=ExtResource("6_xjeco")]
 position = Vector2(-311, -297)
-barrel_speed = 320.0
+barrel_speed = 280.0
 
 [node name="Hammer" parent="." unique_id=2078989970 instance=ExtResource("7_j77fg")]
-position = Vector2(-440, 167)
+position = Vector2(-347, 304)
 scale = Vector2(4, 4)
 
 [node name="PointsManager" type="Node" parent="." unique_id=527682622]
@@ -254,3 +255,24 @@ position = Vector2(-347, -196)
 scale = Vector2(4, 4)
 
 [node name="LevelTransition" parent="." unique_id=965730594 instance=ExtResource("11_jtv8s")]
+
+[node name="Enemy" parent="." unique_id=1764454690 instance=ExtResource("12_c81s1")]
+position = Vector2(142, -166)
+speed = 30.0
+left_limit = -20.0
+right_limit = 20.0
+
+[node name="Enemy2" parent="." unique_id=720575480 instance=ExtResource("12_c81s1")]
+position = Vector2(-344, -37)
+speed = 50.0
+left_limit = -20.0
+right_limit = 120.0
+
+[node name="Enemy3" parent="." unique_id=777627476 instance=ExtResource("12_c81s1")]
+position = Vector2(178, 382)
+left_limit = -20.0
+right_limit = 20.0
+
+[node name="Hammer3" parent="." unique_id=720503002 instance=ExtResource("7_j77fg")]
+position = Vector2(421, 77)
+scale = Vector2(4, 4)

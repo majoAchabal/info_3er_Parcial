@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://by7wv38ewxr83"]
+
+[ext_resource type="Script" uid="uid://sa0ewqhnve2c" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://dc1h71wmearuh" path="res://Assets/Fireball.png" id="1_hghv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hghv2"]
+size = Vector2(12, 12)
+
+[node name="Enemy" type="Area2D" unique_id=1764454690 groups=["enemies"]]
+scale = Vector2(3, 3)
+collision_layer = 4
+script = ExtResource("1_1f0kj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=898285985]
+texture = ExtResource("1_hghv2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=529685821]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_hghv2")

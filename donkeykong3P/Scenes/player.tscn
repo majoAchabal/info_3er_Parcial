@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://dqka02bkf2afk"]
+[gd_scene format=3 uid="uid://dqka02bkf2afk"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_j32ya"]
+[ext_resource type="Script" uid="uid://coveuo7wynbcj" path="res://Scripts/player.gd" id="1_j32ya"]
 [ext_resource type="Texture2D" uid="uid://bg1exf8smy5e8" path="res://Assets/Mario_Run1.png" id="1_rc3hi"]
 [ext_resource type="Texture2D" uid="uid://c3oiii2x8nfdj" path="res://Assets/Mario_Climb.png" id="2_178eb"]
 [ext_resource type="Texture2D" uid="uid://bs2djhms5mm07" path="res://Assets/Mario_Run2.png" id="3_7x714"]
@@ -106,40 +106,41 @@ size = Vector2(12, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sd0kc"]
 size = Vector2(2.5, 11)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1498503327]
 collision_mask = 46
 script = ExtResource("1_j32ya")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=970562882]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_d4att")
 animation = &"die"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1151833923]
 shape = SubResource("RectangleShape2D_g61am")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=478924761]
 target_position = Vector2(0, 30)
 collision_mask = 4
 
-[node name="Hammer" type="Sprite2D" parent="."]
+[node name="Hammer" type="Sprite2D" parent="." unique_id=1562677377]
 visible = false
 texture_filter = 1
 position = Vector2(0, -11.25)
 texture = ExtResource("6_nfb1k")
 
-[node name="HammerCollision" type="Area2D" parent="."]
+[node name="HammerCollision" type="Area2D" parent="." unique_id=48758641]
 position = Vector2(10, 0)
 collision_layer = 16
 collision_mask = 4
 monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HammerCollision"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HammerCollision" unique_id=1542629113]
 shape = SubResource("RectangleShape2D_sd0kc")
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." unique_id=100812032]
 wait_time = 7.0
 one_shot = true
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="HammerCollision" to="." method="_on_hammer_collision_area_entered"]
 [connection signal="body_entered" from="HammerCollision" to="." method="_on_hammer_collision_body_entered"]

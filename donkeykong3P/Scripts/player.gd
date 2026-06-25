@@ -175,6 +175,8 @@ func pick_up_hammer() -> void:
 	hammer_timer.start()
 	SoundManager.play_item()
 	SoundManager.start_hammer_loop()
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		enemy.set_vulnerable(true)
 
 
 func _on_hammer_expired() -> void:
@@ -182,6 +184,8 @@ func _on_hammer_expired() -> void:
 	hammer_node.visible    = false
 	hammer_area.monitoring = false
 	SoundManager.stop_hammer_loop()
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		enemy.set_vulnerable(false)
 
 
 func _on_frame_changed() -> void:
@@ -228,13 +232,23 @@ func _on_hammer_collision_body_entered(body: Node) -> void:
 		SoundManager.play_hammer_hit()
 		award_points.emit(body.global_position)
 		body.queue_free()
+	if body.is_in_group("enemies"):
+		body.die()
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "die":
 		GameState.lose_life()
+		SoundManager.stop_all_sfx()
 		
 		if GameState.lives > 0:
 			LevelManager.restart_level()
 		else:
 			get_tree().call_deferred("change_scene_to_file", "res://Scenes/game_over.tscn")
+
+
+func _on_hammer_collision_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemies"):
+		SoundManager.play_point()
+		award_points.emit(area.global_position)
+		area.die()

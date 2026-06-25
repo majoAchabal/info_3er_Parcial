@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dlgy0os4wmmt2" path="res://Scenes/ui.tscn" id="10_r50x2"]
 [ext_resource type="PackedScene" uid="uid://cypry1btpy4cm" path="res://Scenes/pause_menu.tscn" id="11_af3po"]
 [ext_resource type="PackedScene" uid="uid://v0mmvu8hpeb5" path="res://Scenes/level_transition.tscn" id="12_uy8f0"]
+[ext_resource type="PackedScene" uid="uid://by7wv38ewxr83" path="res://Scenes/enemy.tscn" id="13_6r07y"]
 
 [node name="main" type="Node" unique_id=1270589648]
 
@@ -328,3 +329,10 @@ scale = Vector2(4, 4)
 [node name="Control" parent="." unique_id=938352744 instance=ExtResource("11_af3po")]
 
 [node name="LevelTransition" parent="." unique_id=965730594 instance=ExtResource("12_uy8f0")]
+
+[node name="Enemy" parent="." unique_id=1937521690 instance=ExtResource("13_6r07y")]
+position = Vector2(-184, 237)
+scale = Vector2(3, 3)
+
+[node name="Enemy2" parent="." unique_id=431190142 instance=ExtResource("13_6r07y")]
+position = Vector2(131, 385)
