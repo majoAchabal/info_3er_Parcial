@@ -280,3 +280,11 @@ func _on_hammer_collision_area_entered(area: Area2D) -> void:
 		SoundManager.play_point()
 		award_points.emit(area.global_position)
 		area.die()
+
+
+func _on_damage_area_body_entered(body: Node) -> void:
+	if dead:
+		return
+
+	if body is Barrel:
+		_die()

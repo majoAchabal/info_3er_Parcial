@@ -27,10 +27,10 @@ texture = ExtResource("1_5rvg2")
 [node name="Ladders1" type="Node" parent="Ladders" unique_id=802700329]
 
 [node name="Ladder" parent="Ladders/Ladders1" unique_id=1199448110 instance=ExtResource("2_jtv8s")]
-position = Vector2(11, 380)
+position = Vector2(13, 380)
 
 [node name="Ladder3" parent="Ladders/Ladders1" unique_id=1079204026 instance=ExtResource("2_jtv8s")]
-position = Vector2(10, 312)
+position = Vector2(12, 312)
 length = 1.0
 can_barrel_drop = true
 drop_chance = 0.3
@@ -42,16 +42,16 @@ length = 2.5
 [node name="Ladders2" type="Node" parent="Ladders" unique_id=1734638535]
 
 [node name="Ladder2" parent="Ladders/Ladders2" unique_id=341766557 instance=ExtResource("2_jtv8s")]
-position = Vector2(-289, 221)
+position = Vector2(-263, 221)
 
 [node name="Ladders3" type="Node" parent="Ladders" unique_id=879012154]
 
 [node name="Ladder" parent="Ladders/Ladders3" unique_id=1547750961 instance=ExtResource("2_jtv8s")]
-position = Vector2(-268, 141)
+position = Vector2(-304, 141)
 length = 1.0
 
 [node name="Ladder2" parent="Ladders/Ladders3" unique_id=916000116 instance=ExtResource("2_jtv8s")]
-position = Vector2(-267, 44)
+position = Vector2(-305, 44)
 length = 1.5
 can_barrel_drop = true
 drop_chance = 0.3
@@ -96,16 +96,16 @@ length = 1.5
 position = Vector2(-352, 432)
 
 [node name="Platform3" parent="Platforms/Platforms1" unique_id=874349611 instance=ExtResource("3_c81s1")]
-position = Vector2(-136, 432)
+position = Vector2(-163, 432)
 
 [node name="Platform5" parent="Platforms/Platforms1" unique_id=1553216726 instance=ExtResource("3_c81s1")]
-position = Vector2(29, 428)
+position = Vector2(31, 423)
 
 [node name="Platform6" parent="Platforms/Platforms1" unique_id=83113984 instance=ExtResource("3_c81s1")]
-position = Vector2(177, 423)
+position = Vector2(177, 411)
 
 [node name="Platform8" parent="Platforms/Platforms1" unique_id=517151514 instance=ExtResource("3_c81s1")]
-position = Vector2(321, 413)
+position = Vector2(321, 400)
 
 [node name="Platforms2" type="Node" parent="Platforms" unique_id=651054077]
 
@@ -120,19 +120,19 @@ position = Vector2(117, 293)
 position = Vector2(21, 287)
 
 [node name="Platform5" parent="Platforms/Platforms2" unique_id=728454321 instance=ExtResource("3_c81s1")]
-position = Vector2(-126, 283)
+position = Vector2(-126, 274)
 can_be_disabled = true
 
 [node name="Platform7" parent="Platforms/Platforms2" unique_id=309423440 instance=ExtResource("3_c81s1")]
-position = Vector2(-268, 273)
+position = Vector2(-273, 274)
 
 [node name="Platform8" parent="Platforms/Platforms2" unique_id=881382405 instance=ExtResource("3_c81s1")]
-position = Vector2(-416, 271)
+position = Vector2(-419, 271)
 
 [node name="Platforms3" type="Node" parent="Platforms" unique_id=1694258611]
 
 [node name="Platform" parent="Platforms/Platforms3" unique_id=1001804827 instance=ExtResource("3_c81s1")]
-position = Vector2(-291, 181)
+position = Vector2(-289, 181)
 can_be_disabled = true
 
 [node name="Platform4" parent="Platforms/Platforms3" unique_id=1620106452 instance=ExtResource("3_c81s1")]
@@ -243,7 +243,7 @@ texture = ExtResource("4_n4vm5")
 
 [node name="Player" parent="." unique_id=1092844289 node_paths=PackedStringArray("ui") instance=ExtResource("5_fxnjf")]
 position = Vector2(-352, 384)
-scale = Vector2(4, 4)
+scale = Vector2(3.5, 3.5)
 ui = NodePath("../UI")
 
 [node name="BarrelSpawner" parent="." unique_id=1756485173 instance=ExtResource("6_xjeco")]
@@ -282,7 +282,7 @@ left_limit = -20.0
 right_limit = 120.0
 
 [node name="Enemy3" parent="." unique_id=777627476 instance=ExtResource("12_c81s1")]
-position = Vector2(178, 382)
+position = Vector2(178, 377)
 left_limit = -20.0
 right_limit = 20.0
 
